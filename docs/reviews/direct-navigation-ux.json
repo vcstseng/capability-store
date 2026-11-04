@@ -17,5 +17,8 @@
   "horizontal_overflow": false,
   "minimum_category_height_px": 90,
   "console_errors": 0,
-  "layer_3_implemented": false
+  "layer_3_implemented": false,
+  "public_page_verified": true,
+  "deployment": "success",
+  "deployment_run_id": 41844607492
 }
