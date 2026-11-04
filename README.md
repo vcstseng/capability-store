@@ -9,7 +9,7 @@
 
 目前 Layer 1 以 99 Problems 分類為主：10 個企業領域、4 個有相關候選的 AI 面向，共 14 個入口。每類顯示能力例子與主題數，中英文與網址狀態同步。GitHub 熱門快照為次要入口，預設 3 筆，可展開 15 筆。
 
-首頁目前可探索 28 個主題、74 個候選；完整資料仍保留 32 個主題、84 個候選，4 個產業主題暫未對應主入口。導覽關係不代表已驗證能解決某個企業問題。能力列表與詳情（Layer 2／3）尚未實作。
+首頁目前可探索 28 個主題、74 個候選；完整資料仍保留 32 個主題、84 個候選，4 個產業主題暫未對應主入口。導覽關係不代表已驗證能解決某個企業問題。Layer 2 已完成能力分組與候選列表，Layer 3 尚未實作。
 
 ## 本機預覽
 
@@ -27,3 +27,10 @@ npm run dev
 GitHub Pages 使用 `.github/workflows/deploy.yml` 建置與發布 `web/dist`。原始來源及候選池留在 repo，網站僅發布入口需要的精簡 JSON。
 
 資料完整性核對：`python scripts/validate/validate_catalog.py`。來源聲明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。不安裝第三方候選、不做自動 matching 或共用資料層。
+
+## Layer 2
+
+- [採購能力列表](https://vcstseng.github.io/capability-store/?lang=zh&work=business-procurement&view=results)
+- [GitHub 熱門快照列表](https://vcstseng.github.io/capability-store/?lang=zh&view=results&source=trending)
+
+從 L1 選擇工作後點「查看能力」。候選可直接前往原始來源；類型、來源與尚未實測狀態清楚標示。支援雙語、直接網址、返回位置與同頁主題跳轉。能力資源維持穩定 ID，不因跨分類探索而複製。

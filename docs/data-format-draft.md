@@ -21,3 +21,11 @@
 ## 首頁導覽（0.2-portal）
 
 `config/taxonomy/portal-navigation.json` 定義 99 Problems 參考分組、雙語分類與能力 ID 對應。建置時由原始 catalog 計算各類主題／不重複資源數、雙語例子、全站去重總數及未對應主題。catalog 原本的工作分類與資源 ID 不修改。這是導覽設定，不是跨模組共用 schema 或已驗證的 Problem matching。
+
+## L2 精簡資料（0.1-results）
+
+`web/dist/data/results.json` 由 catalog 建置產生：capabilities 保存 id、雙語 label、resource_ids；resources 保存 id、名稱、URL、多值 types、雙語 summary、parent_repository、review_status 及清單 repo 名稱。完整 evidence 留在原 catalog，不複製到首頁資料。
+
+L2 以 portal 的 capability_ids 取資料，計數按穩定 ID 去重。找不到分類不顯示全量資源；參照缺失會報錯，不以其他候選填補。原 catalog 完整 32／84 保留。
+
+網址 view=results，source=trending 時顯示榜單，其他為工作候選；work 沿用穩定入口 ID，lang 控制雙語。problem 是可選且受格式限制的情境識別字，僅保留、不查找或驗證問題關聯。暫不建立共用資料層或跨站 matching。

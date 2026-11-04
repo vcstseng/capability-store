@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-04",
+  "scope": "Layer 2 only",
+  "node_tests_passed": 9,
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "desktop_browser": "Chrome",
+  "mobile_css_width": 375,
+  "horizontal_overflow": false,
+  "procurement_themes": 3,
+  "procurement_candidates": 8,
+  "trending_repositories": 15,
+  "interactions": [
+    "L1 selection to L2",
+    "work capability grouping",
+    "type labels and original/parent links",
+    "theme anchor",
+    "language retains route",
+    "direct L2 URL",
+    "clear L1/browser history",
+    "return to portal scroll position",
+    "Trending list retains source order"
+  ],
+  "original_catalog_preserved": true,
+  "layer_3_implemented": false,
+  "installation_or_execution": false,
+  "future_context": "problem ID preserved only; no verified cross-module relation"
+}
