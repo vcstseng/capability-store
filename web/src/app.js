@@ -37,18 +37,21 @@ function updateState(next, replace = false) {
 }
 function go(next, restore = false) {
   savePosition();
+  if (next.view === 'resource') history.replaceState({ ...history.state, focusResource: next.id }, '', location.href);
+  const focusResource = restore && next.view === 'results' ? state.id : null;
   if (next.view === 'results' && next.source === 'work') history.replaceState({ ...history.state, focusWork: next.work }, '', location.href);
   const focusWork = restore && next.view === 'portal' ? state.work : null;
   state = { ...state, ...next };
   const top = restore ? positions[positionKey(state)] || 0 : 0;
   history.pushState({ scrollY: top }, '', location.pathname + routeSearch(state));
-  pendingPosition = { top, focus: !restore, focusWork };
+  pendingPosition = { top, focus: !restore, focusWork, focusResource };
   render(); ensureData();
 }
 function restorePosition() {
   if (!pendingPosition || !portal) return;
-  if (state.view === 'results' && state.source === 'work' && state.work && !results && !failed.results) return;
+  if ((state.view === 'resource' || state.view === 'results') && state.source === 'work' && state.work && !results && !failed.results) return;
   if (state.view === 'results' && state.source === 'trending' && !trending && !failed.trending) return;
+  if (state.view === 'resource' && ((!results && !failed.results) || (state.id?.startsWith('github:') && !trending && !failed.trending))) return;
   const target = pendingPosition;
   pendingPosition = null;
   requestAnimationFrame(() => {
@@ -58,6 +61,7 @@ function restorePosition() {
     }
     window.scrollTo(0, target.top);
     if (state.view === 'portal' && target.focusWork) document.querySelector(`[data-work="${target.focusWork}"]`)?.focus({ preventScroll: true });
+    else if (state.view === 'results' && target.focusResource) document.querySelector(`[data-resource="${target.focusResource}"]`)?.focus({ preventScroll: true });
     else if (target.focus) document.querySelector('#page-title')?.focus({ preventScroll: true });
   });
 }
@@ -67,7 +71,7 @@ function loadState(part, message) {
 }
 function trendingRow(repo, full = false) {
   const t = copy[state.lang];
-  return `<li class="trending-row" id="repo-${e(repo.repository.toLowerCase().replace('/', '--'))}"><span class="rank" aria-hidden="true">${String(repo.rank_in_snapshot).padStart(2, '0')}</span><div class="trending-copy"><div class="candidate-title">${external(repo.url, repo.repository, 'repo-link')}${full ? `<span class="type-tag">${t.githubProject}</span>` : ''}</div><p ${repo.summary[state.lang] ? '' : 'class="missing-description"'}>${e(repo.summary[state.lang] || t.noDescription)}</p>${full ? `<p class="candidate-origin">GitHub Trending · ${date(trending.observed_at)}</p>` : ''}</div><div class="star-signal"><span class="stars">${repo.weekly_stars == null ? '—' : '+' + new Intl.NumberFormat(locale()).format(repo.weekly_stars)}</span><span>${t.weekly}</span></div></li>`;
+  return `<li class="trending-row" id="repo-${e(repo.repository.toLowerCase().replace('/', '--'))}"><span class="rank" aria-hidden="true">${String(repo.rank_in_snapshot).padStart(2, '0')}</span><div class="trending-copy"><div class="candidate-title"><a class="repo-link" data-route="forward" data-resource="${e('github:' + repo.repository.toLowerCase())}" href="${e(href({view:'resource',source:'trending',id:'github:' + repo.repository.toLowerCase()}))}">${e(repo.repository)}</a>${full ? `<span class="type-tag">${t.githubProject}</span>` : ''}</div><p ${repo.summary[state.lang] ? '' : 'class="missing-description"'}>${e(repo.summary[state.lang] || t.noDescription)}</p>${full ? `<p class="candidate-origin">GitHub Trending · ${date(trending.observed_at)}</p>` : ''}</div><div class="star-signal"><span class="stars">${repo.weekly_stars == null ? '—' : '+' + new Intl.NumberFormat(locale()).format(repo.weekly_stars)}</span><span>${t.weekly}</span></div></li>`;
 }
 function portalContent(t) {
   return `<section class="intro" aria-labelledby="page-title"><p class="eyebrow">CAPABILITY STORE</p><h1 id="page-title" tabindex="-1">${t.heading}</h1><p class="intro-text">${t.intro}</p>
@@ -85,13 +89,30 @@ function portalContent(t) {
       ${trending ? `<div class="trending-context"><span>${t.snapshot} · <time datetime="${e(trending.observed_at)}">${date(trending.observed_at)}</time></span>${external(trending.source_url, t.source)}</div><ol class="trending-list">${trending.repositories.slice(0, 3).map(repo => trendingRow(repo)).join('')}</ol><p class="section-footnote">${t.trendNote}</p>` : loadState('trending', t.trendError)}
     </section>`;
 }
+function resourceRoute(id) { return href({ view: 'resource', id }); }
 function candidateCard(resource) {
   const t = copy[state.lang];
   const tags = resource.types.map(type => `<span class="type-tag">${e(TYPES[type]?.[state.lang === 'zh' ? 0 : 1] || t.resource)}</span>`).join('');
-  const parent = resource.parent_repository && resource.parent_repository !== resource.url;
-  const parentName = parent ? new URL(resource.parent_repository).pathname.slice(1) : '';
-  return `<article class="candidate-card" id="resource-${e(resource.id)}"><div class="candidate-title"><h3>${e(resource.name)}</h3><div class="type-tags">${tags}</div></div><p class="candidate-summary">${e(resource.summary[state.lang] || t.noDescription)}</p><div class="candidate-links">${external(resource.url, t.originalSource, 'source-link')}${parent ? external(resource.parent_repository, t.parentProject + parentName) : ''}</div><p class="candidate-origin">${t.listSource}${e(resource.list_sources.join(' · '))}</p></article>`;
+  const facts = ['input','output'].filter(key => resource.display?.[key]).map(key => `<span><b>${t[key]}</b>${e(resource.display[key][state.lang])}</span>`).join('');
+  return `<article class="candidate-card compact-candidate" id="resource-${e(resource.id)}"><a class="candidate-entry" data-route="forward" data-resource="${e(resource.id)}" href="${e(resourceRoute(resource.id))}"><div class="candidate-title"><h3>${e(resource.name)}</h3><div class="type-tags">${tags}</div></div><p class="candidate-summary"><span class="fact-label">${t.canDo}</span>${e(resource.summary[state.lang] || t.noDescription)}</p>${facts ? `<div class="candidate-facts">${facts}</div>` : ''}<span class="candidate-detail">${t.viewDetail} <span aria-hidden="true">→</span></span></a></article>`;
 }
+function detailContent(t) {
+  const hasList = state.source === 'trending' || portal?.works.some(work => work.id === state.work);
+  const backHref = href({view:hasList ? 'results' : 'portal'});
+  const backText = hasList ? t.backList : t.backToWork;
+  const back = `<a class="outline-button" data-route="return" href="${e(backHref)}">${backText}</a>`;
+  if (!results || (state.id?.startsWith('github:') && !trending)) return `<section class="intro"><h1 id="page-title" tabindex="-1">${t.detailTitle}</h1></section>${!results ? loadState('results') : loadState('trending')}`;
+  const resource = results.resources.find(r => r.id === state.id);
+  const repo = !resource && state.id?.startsWith('github:') ? trending.repositories.find(r => `github:${r.repository.toLowerCase()}` === state.id) : null;
+  if (!resource && !repo) return `<section class="intro"><h1 id="page-title" tabindex="-1">${t.resourceMissing}</h1><p>${t.resourceMissingHint}</p></section>${back}`;
+  const item = resource || { name:repo.repository, summary:repo.summary, url:repo.url, types:[], list_sources:['GitHub Trending'] };
+  const related = resource ? results.capabilities.filter(theme => theme.resource_ids.includes(resource.id)) : [];
+  const tags = resource ? resource.types.map(type => `<span class="type-tag">${e(TYPES[type]?.[state.lang === 'zh' ? 0 : 1] || t.resource)}</span>`).join('') : `<span class="type-tag">${t.githubProject}</span>`;
+  const facts = ['input','output'].filter(key => item.display?.[key]).map(key => `<div><dt>${t[key]}</dt><dd>${e(item.display[key][state.lang])}</dd></div>`).join('');
+  const parent = resource?.parent_repository && resource.parent_repository !== resource.url;
+  return `<nav class="journey" aria-label="${t.journey}"><a data-route="return" href="${e(backHref)}">${backText}</a><span aria-hidden="true">／</span><span aria-current="page">${t.detailTitle}</span></nav><article class="resource-page"><header class="intro resource-intro"><p class="eyebrow">CAPABILITY STORE</p><h1 id="page-title" tabindex="-1">${e(item.name)}</h1><div class="type-tags">${tags}</div><p class="resource-overview">${e(item.summary[state.lang] || t.noDescription)}</p></header>${facts ? `<section class="detail-section"><h2>${t.taskScope}</h2><dl class="detail-facts">${facts}</dl></section>` : ''}${related.length ? `<section class="detail-section"><h2>${t.relatedCapabilities}</h2><ul class="related-themes">${related.map(theme => `<li>${e(theme.label[state.lang])}</li>`).join('')}</ul></section>` : ''}<section class="detail-section"><h2>${t.originalResource}</h2><div class="detail-actions">${external(item.url,t.originalSource,'outline-button')}${parent ? external(resource.parent_repository,t.parentProject + new URL(resource.parent_repository).pathname.slice(1),'outline-button') : ''}</div><p class="section-footnote">${t.externalNote}</p></section><section class="detail-section"><h2>${t.evidenceTitle}</h2><dl class="detail-facts"><div><dt>${t.listSource}</dt><dd>${e(item.list_sources.join(' · '))}</dd></div><div><dt>${t.reviewDate}</dt><dd>${repo ? date(trending.observed_at) : e(results.review_date)}</dd></div><div><dt>${t.reviewStatus}</dt><dd>${repo ? t.snapshotStatus : t.directoryStatus}</dd></div></dl><p class="detail-note">${t.detailLimits}</p>${item.summary.en ? `<details class="source-excerpt"><summary>${t.originalDescription}</summary><p lang="en">${e(item.summary.en)}</p></details>` : ''}</section><div class="results-bottom">${back}</div></article>`;
+}
+
 function returnLink(t, extraClass = '') {
   return `<a class="outline-button ${extraClass}" data-route="return" href="${e(href({ view: 'portal', source: 'work' }))}">${t.backToWork}</a>`;
 }
@@ -103,24 +124,26 @@ function resultsContent(t) {
   if (!portal) return header + loadState('portal');
   if (isTrending) {
     if (!trending) return header + loadState('trending', t.trendError);
-    return header + `<div class="results-context"><p>${t.repoCount(trending.repositories.length)}</p><span>${t.snapshot} · <time datetime="${e(trending.observed_at)}">${date(trending.observed_at)}</time></span></div><p class="results-note">${t.trendNote}</p><ol class="trending-list results-trending">${trending.repositories.map(repo => trendingRow(repo, true)).join('')}</ol><div class="results-bottom">${returnLink(t)}${external(trending.source_url, t.source)}</div>`;
+    return header + `<div class="results-context"><p>${t.repoCount(trending.repositories.length)}</p><span>${t.snapshot} · <time datetime="${e(trending.observed_at)}">${date(trending.observed_at)}</time></span></div><p class="results-note">${t.trendNote}</p><ol class="trending-list results-trending">${trending.repositories.map(repo => trendingRow(repo, true)).join('')}</ol><div class="results-bottom">${returnLink(t)}</div>`;
   }
   if (!work) return header + `<div class="load-state"><p>${t.invalidWorkHint}</p>${returnLink(t)}</div>`;
   if (!results) return header + loadState('results');
   let listing;
   try { listing = workResults(portal, results, work.id); }
   catch { return header + `<div class="load-state" role="alert"><p>${t.error}</p>${returnLink(t)}</div>`; }
-  return header + `<div class="results-context"><p>${t.groupCount(listing.theme_count, listing.resource_count)}</p><span>${t.directoryStatus}</span></div><nav class="theme-jumps" aria-label="${t.themeNavigation}">${listing.groups.map(group => `<a href="#capability-${e(group.id)}">${e(group.label[state.lang])}</a>`).join('')}</nav><p class="results-note">${t.resultsNote}</p><div class="capability-groups">${listing.groups.map((group, index) => `<section class="capability-group" id="capability-${e(group.id)}" aria-labelledby="theme-${e(group.id)}"><div class="capability-heading"><span class="theme-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><h2 id="theme-${e(group.id)}">${e(group.label[state.lang])}</h2><span>${t.candidateCount(group.resources.length)}</span></div><div class="candidate-list">${group.resources.map(candidateCard).join('')}</div></section>`).join('')}</div><div class="results-bottom">${returnLink(t)}</div>`;
+  return header + `<div class="results-context"><p>${t.groupCount(listing.theme_count, listing.resource_count)}</p><span>${t.directoryStatus}</span></div><nav class="theme-jumps theme-overview" aria-label="${t.themeNavigation}">${listing.groups.map(group => `<a href="#capability-${e(group.id)}"><span>${e(group.label[state.lang])}</span><small>${t.candidateCount(group.resources.length)}</small></a>`).join('')}</nav><p class="results-note">${t.resultsNote}</p><div class="capability-groups">${listing.groups.map((group, index) => `<section class="capability-group" id="capability-${e(group.id)}" aria-labelledby="theme-${e(group.id)}"><div class="capability-heading"><span class="theme-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><h2 id="theme-${e(group.id)}">${e(group.label[state.lang])}</h2><span>${t.candidateCount(group.resources.length)}</span></div><p class="theme-description">${e(t.topicIntros?.[group.id] || t.topicDefault)}</p><div class="candidate-list">${group.resources.map(candidateCard).join('')}</div></section>`).join('')}</div><div class="results-bottom">${returnLink(t)}</div>`;
 }
 function render() {
   const t = copy[state.lang];
-  const isResults = state.view === 'results';
+  const isDetail = state.view === 'resource';
+  const isResults = state.view !== 'portal';
   const work = portal?.works.find(w => w.id === state.work);
-  const page = isResults ? state.source === 'trending' ? t.trending : work ? label(work) : t.resultStep : t.title;
+  const detailName = isDetail ? results?.resources.find(r => r.id === state.id)?.name || trending?.repositories.find(r => 'github:' + r.repository.toLowerCase() === state.id)?.repository || t.detailTitle : '';
+  const page = isDetail ? detailName : isResults ? state.source === 'trending' ? t.trending : work ? label(work) : t.resultStep : t.title;
   document.documentElement.lang = state.lang === 'zh' ? 'zh-Hant' : 'en';
   document.title = isResults ? `${page} · ${t.title}` : `${t.title} · ${t.tagline}`;
   document.querySelector('meta[name="description"]').content = isResults ? t.resultsIntro : t.intro;
-  app.innerHTML = `<div class="app-shell${isResults ? ' results-view' : ''}"><a class="skip-link" href="${isResults ? '#page-title' : '#work-heading'}">${isResults ? t.skipResults : t.skip}</a><header class="masthead"><a class="wordmark" href="${e(href({ view: 'portal', source: 'work', work: null }))}" data-home>${t.title}<span class="brand-dot" aria-hidden="true"></span></a><div class="masthead-tools"><span class="masthead-note">${t.tagline}</span><nav class="language-switch" aria-label="Language"><button type="button" lang="zh-Hant" data-language="zh" aria-pressed="${state.lang === 'zh'}">中文</button><button type="button" lang="en" data-language="en" aria-pressed="${state.lang === 'en'}">English</button></nav></div></header><main>${isResults ? resultsContent(t) : portalContent(t)}</main><footer><p>${t.footer}</p><div><span>${isResults ? t.resultStep : t.prototype}</span>${external('https://github.com/vcstseng/capability-store', t.repo)}</div></footer><p id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p></div>`;
+  app.innerHTML = `<div class="app-shell${isResults ? ' results-view' : ''}"><a class="skip-link" href="${isResults ? '#page-title' : '#work-heading'}">${isResults ? t.skipResults : t.skip}</a><header class="masthead"><a class="wordmark" href="${e(href({ view: 'portal', source: 'work', work: null }))}" data-home>${t.title}<span class="brand-dot" aria-hidden="true"></span></a><div class="masthead-tools"><span class="masthead-note">${t.tagline}</span><nav class="language-switch" aria-label="Language"><button type="button" lang="zh-Hant" data-language="zh" aria-pressed="${state.lang === 'zh'}">中文</button><button type="button" lang="en" data-language="en" aria-pressed="${state.lang === 'en'}">English</button></nav></div></header><main>${isDetail ? detailContent(t) : isResults ? resultsContent(t) : portalContent(t)}</main><footer><p>${t.footer}</p><div><span>${isDetail ? t.detailTitle : isResults ? t.resultStep : t.prototype}</span>${external('https://github.com/vcstseng/capability-store', t.repo)}</div></footer><p id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p></div>`;
   restorePosition();
 }
 
@@ -147,7 +170,7 @@ app.addEventListener('click', event => {
 window.addEventListener('popstate', () => {
   savePosition(false);
   state = readRoute(location.search, portal?.works.map(w => w.id) || [], state.lang);
-  pendingPosition = { top: Number(history.state?.scrollY ?? positions[positionKey(state)] ?? 0), focus: false, hash: location.hash, focusWork: history.state?.focusWork };
+  pendingPosition = { top: Number(history.state?.scrollY ?? positions[positionKey(state)] ?? 0), focus: false, hash: location.hash, focusWork: history.state?.focusWork, focusResource: history.state?.focusResource };
   render(); ensureData();
 });
 window.addEventListener('pagehide', () => savePosition());
@@ -176,7 +199,7 @@ async function load(part) {
   render(); ensureData();
 }
 function ensureData() {
-  if (state.view === 'results' && state.source === 'work' && portal && state.work && !results && !failed.results) load('results');
+  if ((state.view === 'resource' || (state.view === 'results' && state.source === 'work' && state.work)) && portal && !results && !failed.results) load('results');
 }
 render();
 Promise.allSettled([load('portal'), load('trending')]);

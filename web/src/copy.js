@@ -56,3 +56,25 @@ Object.assign(copy.en, {
  candidateCount:n=>`${n} candidates`, originalSource:'Open original source ↗', parentProject:'Parent project: ', listSource:'Listed by: ',
  resource:'Resource', githubProject:'GitHub project', skipResults:'Skip to candidates',
 });
+
+Object.assign(copy.zh,{canDo:'能做什麼：',input:'輸入：',output:'輸出：',viewDetail:'查看詳情',backList:'← 返回候選列表',detailTitle:'資源詳情',resourceMissing:'找不到這個資源',resourceMissingHint:'此連結的資源不存在或尚未整理，請返回列表。',taskScope:'工作範圍',relatedCapabilities:'相關能力主題',originalResource:'原始資源',evidenceTitle:'資料依據',reviewDate:'整理／觀察日期',reviewStatus:'查核狀態',snapshotStatus:'榜單快照 · 尚未實測',externalNote:'以下連結開啟外部網站。',detailLimits:'目前依公開清單或榜單整理，尚未逐項確認安裝條件、費用、相容性與實際效果。',originalDescription:'查看來源英文介紹'});
+Object.assign(copy.en,{canDo:'What it does: ',input:'Input: ',output:'Output: ',viewDetail:'View details',backList:'← Back to candidates',detailTitle:'Resource details',resourceMissing:'Resource not found',resourceMissingHint:'This resource is unavailable. Return to the list to explore candidates.',taskScope:'Task scope',relatedCapabilities:'Related capability themes',originalResource:'Original resource',evidenceTitle:'Evidence and review',reviewDate:'Review / observation date',reviewStatus:'Review status',snapshotStatus:'Ranking snapshot · Not tested',externalNote:'These links open external websites.',detailLimits:'Based on public directories or rankings. Installation requirements, pricing, compatibility and outcomes have not been individually verified.',originalDescription:'Read the original English description'});
+
+copy.zh.topicDefault='比較下列候選能支援的具體工作，再查看資源詳情。';
+copy.en.topicDefault='Compare the tasks each candidate supports, then open its details.';
+copy.zh.topicIntros={
+'document-conversion':'將文件內容轉換或匯入，供後續資料處理使用。',
+'data-analysis':'比較試算表操作、資料倉儲查詢與檔案問答等不同做法。',
+'invoices':'這裡包含整理發票／收據，以及建立與檢視發票的不同候選。',
+'accounting':'探索連接現有會計服務資料的工具。',
+'payments':'比較付款、商品目錄與訂單等商務功能的工具入口。',
+'forecasting':'比較時間序列預測與資料分析工具的工作範圍。',
+'procurement-search':'目前候選分別查詢德國與俄羅斯公開採購資料，請留意資料地區。'};
+copy.en.topicIntros={
+'document-conversion':'Convert or ingest document content for further data processing.',
+'data-analysis':'Compare spreadsheet operations, warehouse queries and questions about files.',
+'invoices':'Candidates cover different tasks: organizing invoices and receipts, or creating and reviewing invoices.',
+'accounting':'Explore tools for accessing existing accounting services.',
+'payments':'Compare tool entry points for payments, catalogs, orders and commerce.',
+'forecasting':'Compare the scope of time-series forecasting and data analysis tools.',
+'procurement-search':'These candidates query public procurement data in Germany and Russia respectively. Check regional coverage.'};

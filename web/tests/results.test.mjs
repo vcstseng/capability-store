@@ -50,3 +50,20 @@ test('returning to the portal restores the same position across category routes'
   assert.equal(positionKey(home), positionKey({ ...home, work: 'business-procurement', lang: 'en' }));
   assert.notEqual(positionKey(home), positionKey({ ...home, view: 'results', work: 'business-procurement' }));
 });
+
+test('resource links preserve stable identity and list context while result positions ignore resource identity', () => {
+  const item={lang:'en',work:'business-finance',expanded:false,view:'resource',source:'work',problem:'F03',id:'cap-0123456789abcd'};
+  assert.deepEqual(readExploreRoute(exploreSearch(item),['business-finance']),item);
+  assert.notEqual(positionKey(item),positionKey({...item,id:'cap-aaaaaaaaaaaaaa'}));
+  assert.equal(positionKey({...item,view:'results'}),positionKey({...item,view:'results',id:'cap-aaaaaaaaaaaaaa'}));
+  assert.equal(readExploreRoute('?view=resource&id=javascript:alert(1)',[]).id,null);
+  const repo={...item,source:'trending',id:'github:anthropics/skills'};
+  assert.deepEqual(readExploreRoute(exploreSearch(repo),['business-finance']),repo);
+});
+test('input and output annotations are explicit and do not fill unknown fields', () => {
+  const id=catalog.resources.find(r=>r.name==='Microsoft MarkItDown').id;
+  const data=createResults(catalog,{[id]:{input:{zh:'檔案',en:'Files'},output:null}});
+  assert.equal(data.resources.find(r=>r.id===id).display.input.en,'Files');
+  assert.equal(data.resources.find(r=>r.id===id).display.output,null);
+  assert.ok(!data.resources.find(r=>r.id!==id).display);
+});

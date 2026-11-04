@@ -29,3 +29,7 @@
 L2 以 portal 的 capability_ids 取資料，計數按穩定 ID 去重。找不到分類不顯示全量資源；參照缺失會報錯，不以其他候選填補。原 catalog 完整 32／84 保留。
 
 網址 view=results，source=trending 時顯示榜單，其他為工作候選；work 沿用穩定入口 ID，lang 控制雙語。problem 是可選且受格式限制的情境識別字，僅保留、不查找或驗證問題關聯。暫不建立共用資料層或跨站 matching。
+
+## 比較顯示註記與基本資源頁
+
+`config/resource-display.json` 以既有 resource ID 記錄可由英文來源支持的雙語 input／output，未知為 null；basis_description_en 保留依據。建置時核對原文相符，不改 catalog。精簡 results.json 增加可選 display 欄位。資源網址 view=resource，id 為 cap-穩定ID 或 github:owner/repo；兩者不假合併。純導覽與資料引用，沒有推斷問題適用性。
