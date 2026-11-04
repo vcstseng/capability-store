@@ -28,7 +28,7 @@
   "repository_visibility": "public",
   "initial_upload_commit": "f5d17d2",
   "next_step": "review_business_concepts_layer_2",
-  "website_status": "concept_revision_pending_deployment",
+  "website_status": "concept_revision_pending_external_deployment",
   "website_url": "https://vcstseng.github.io/capability-store/",
   "website_commit": "f4493ac",
   "deployment_run_id": 41857541549,
@@ -41,5 +41,8 @@
   "concept_count": 60,
   "concept_stage_count": 30,
   "concept_reference_placements": 20,
-  "concept_reference_unique_resources": 19
+  "concept_reference_unique_resources": 19,
+  "pending_website_commit": "23a3e10",
+  "pending_deployment_run_id": 41864483858,
+  "local_preview_url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=results"
 }

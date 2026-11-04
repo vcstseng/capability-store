@@ -21,5 +21,11 @@
   "console_errors": 0,
   "implementation_status": "concept_only",
   "source_review": "Existing candidate data only; no external source research this round",
-  "new_layer_3": false
+  "new_layer_3": false,
+  "node_tests_passed": 16,
+  "deployment": "waiting",
+  "pending_deployment_run_id": 41864483858,
+  "public_page_verified": false,
+  "local_preview_verified": true,
+  "github_status_source": "https://www.githubstatus.com/api/v2/summary.json"
 }

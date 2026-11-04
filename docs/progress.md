@@ -15,7 +15,7 @@
 
 資料與內容 review 見 [十領域能力構想](business-concepts-review.md)。測試涵蓋十個分類精確對齊、雙語欄位、未實作狀態、GitHub 參考與構想分離、原有資料不變。瀏覽器逐一確認十頁均為 3 個工作環節、6 個構想、2 個參考；銷售／財務中英文與 375px 無橫向溢出，人類決策區可展開，未見 console error。
 
-發布結果接續記錄。下一步一起 review 構想與 L2，再討論 L3 或挑一題示範。
+內容與程式已推送 GitHub：23a3e10。本機預覽：http://127.0.0.1:4175/?lang=zh&work=business-sales&view=results 。16 項測試與原來源完整性核對通過。正式部署 run 41864483858 仍在等待，尚未上線；GitHub 官方狀態先前通報 Actions／Pages incident xr3myzj7ms51，保留發布佇列。下一步先 review 構想與 L2，待 GitHub 恢復後確認正式發布，再討論 L3 或單題示範。
 
 ---
 
