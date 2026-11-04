@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-04",
+  "node_tests_passed": 4,
+  "build": "passed",
+  "browser": "Chrome",
+  "desktop": true,
+  "mobile_css_width": 375,
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "horizontal_overflow": false,
+  "minimum_button_height_px": 44,
+  "console_errors": 0,
+  "interactions": [
+    "select work",
+    "clear work",
+    "toggle work",
+    "language preserves work",
+    "history back",
+    "reload preserves work",
+    "Trending 5/15",
+    "external link attributes"
+  ],
+  "scope": "Layer 1 only; Layer 2/3 not implemented"
+}

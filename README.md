@@ -1,20 +1,26 @@
 # 能力便利商店 / Capability Store
 
-公開 Repository：[vcstseng/capability-store](https://github.com/vcstseng/capability-store)。目前是資料 prototype，網站尚未部署。
+按工作探索現成工具、Skills 與 Agent 範例的中英文 prototype，延續 Startup Radar 的極簡風格。
 
-企業工作導向的能力探索 prototype。先整理現成 repos、skills、tools 與 Agent 範例，再 review 網站入口；目前沒有 UI、安裝或自動 matching。
+- [GitHub Repository](https://github.com/vcstseng/capability-store)
+- [能力資料 review](docs/prototype-review.md) · [Trending 快照](docs/trending-review.md) · [進度](docs/progress.md)
+- 資料：32 個能力主題、84 個候選資源；另有 15 筆 Trending 週榜快照。已整理不代表已安裝、測試或適用性驗證。
 
-首版已整理 **32 個能力主題、84 個候選資源**，從五份 GitHub 清單的 6,459 個 URL 候選中選出。每題 2–4 個候選，保留中英文、原始連結與來源依據；已整理不代表已測試或採用證明。
+目前完成 Layer 1：19 個有資料的工作入口、選取摘要、中英文切換、網址狀態、Trending 展開／收合與外部 GitHub 連結。能力列表與詳情（Layer 2／3）尚未實作。
 
-- [先看資料 review](docs/prototype-review.md)
-- [進度](docs/progress.md)
-- 網站資料：`data/processed/catalog/catalog.json`
-- 完整候選池：`data/processed/resources/candidate-pool.json`
-- 原始快照：`data/raw/snapshots/`
-- 工作指引：`AGENTS.md`
+## 本機預覽
 
-資料驗證：`python scripts/validate/validate_catalog.py`。首版維持簡單，不建立共用資料層或執行管線。
+Node.js 22+、Python 3。沒有需要安裝的前端套件。
 
-GitHub Trending：另存本週榜單 15 筆快照與中英文資料，見 [榜單 review](docs/trending-review.md)。不計入 84 筆能力候選。
+```text
+cd web
+npm test
+npm run build
+npm run dev
+```
 
-下一步：先做極簡中英文 Layer 1；深入能力 review、Layer 2／3 與跨模組 matching 後續再進行。
+瀏覽器開啟 http://127.0.0.1:4174/；使用 HTTP 預覽，不直接開 file://。
+
+GitHub Pages 使用 `.github/workflows/deploy.yml` 建置與發布 `web/dist`。原始來源及候選池留在 repo，網站僅發布入口需要的精簡 JSON。
+
+資料完整性核對：`python scripts/validate/validate_catalog.py`。來源聲明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。不安裝第三方候選、不做自動 matching 或共用資料層。

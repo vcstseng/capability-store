@@ -1,5 +1,24 @@
 # 專案進度
 
+## 2026-11-04：Layer 1 首頁完成
+
+- 延續 Startup Radar 的暖白背景、深綠色、留白、細分隔線與文字優先風格。
+- 主入口為「按工作探索」：顯示有資料的 19 個工作，以 32 個能力主題計數；84 個資源候選另計。零候選工作不顯示，不新增搜尋或三維交叉篩選。
+- 工作入口目前單選／再次點選取消，可清除選擇；選取摘要顯示主題與不重複資源數。明確標示能力列表下一階段開放，沒有實作 Layer 2／3。
+- Trending 獨立呈現：預設 5 筆，可展開全部 15 筆；保留榜單順序、週榜快照日期、當次新增 Stars 與原始連結。缺介紹明確標示，不補造內容。
+- 中英文切換保留工作與榜單展開狀態；URL 支援 lang、work、trending。瀏覽器前後返回、重新整理與分享網址保留狀態；無效 work 不套用。語言偏好僅保存於瀏覽器。
+- 網站以單一 HTML／CSS／JavaScript 入口與精簡 JSON 建立，不需前端套件依賴。資料從既有 catalog／trending 建置產生，沒有複製候選池到網站。
+
+驗證：4 項 Node 檢查通過（真實分類計數、重複資源計數、分享網址狀態、未知分類）；建置成功。Chrome 桌面與 375px 手機尺寸，中文／英文、工作選擇／清除／返回／重整、Trending 5↔15 及外部連結屬性已檢查，未見橫向溢出或 console error。按鈕觸控區至少 44px。首次本機預覽在一般執行環境無法連線，改用獲准的本機預覽後完成檢查。
+
+GitHub Pages 工作流程已加入，網站預期網址為 https://vcstseng.github.io/capability-store/；實際發布結果接續記錄。
+
+下一步先 review Layer 1，再討論 Layer 2。能力深化 review、替換與個別資源驗證之後再做。
+
+---
+
+
+
 ## 2026-11-04：建立公開 GitHub repo，資料備份完成
 
 - Repository：[vcstseng/capability-store](https://github.com/vcstseng/capability-store)，公開，預設分支 main。

@@ -1,7 +1,13 @@
-# 網站開發預留
+# Layer 1
 
-目前沒有可啟動的網站。先完成來源選擇與完整清單與資料 review review，再確定入口與分類。
+暖白／深綠、文字優先的中英文工作入口與獨立 Trending 區。這輪不實作 Layer 2／3。
 
-延續 Startup Radar 的極簡探索方式：首頁看全貌及分類，結果與資源詳情依 JSON 動態生成；預留中英文。重用其返回、網址、手機與計數語意的經驗，但不直接照搬新創公司分類。
+Node 22+：`npm test`、`npm run build`。Python 3：`npm run dev`，開啟 http://127.0.0.1:4174/。
 
-正式進入網站階段時，再決定 framework、建置及部署流程。本輪不建立依賴或假資料。
+- index.html：共用頁面入口。
+- src/app.js、styles.css：介面、語言與選取互動。
+- src/portal.js：資料計數與網址狀態。
+- scripts/build.mjs：從既有 catalog／trending JSON 產生精簡網站資料，不上線 raw／完整候選池。
+- tests/portal.test.mjs：計數及網址行為檢查。
+
+URL：`?lang=en&work=finance-accounting&trending=all`。穩定工作 ID 可供之後接上動態 Layer 2；目前選取摘要明確說明列表尚未開放。

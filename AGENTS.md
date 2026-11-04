@@ -2,16 +2,14 @@
 
 ## 最新決定（2026-11-04）
 
-使用者已授權並完成公開 repo vcstseng/capability-store 的建立與首版資料上傳，預設分支 main。下一步先做極簡、中英文 Layer 1；能力深化 review 與替換之後再做。這次 GitHub 備份輪不做網站，不連帶實作 Layer 2／3。前述最新決定取代下方較早的「待資料 review 才能開始」限制。
+公開 repo：vcstseng/capability-store，main。Layer 1 已完成：沿用 Startup Radar 極簡風格、中英文、19 個有資料工作入口、單選摘要、獨立 Trending 前 5／全部 15 筆。完成後同步 GitHub 與 docs。下一步先 review 首頁，再討論 Layer 2；不連帶實作 Layer 2／3。
 
-本輪先整理資料，不做網站。完整來源清單保留為候選池，首版按「工作 → 具體能力 → 2–4 個資源候選」整理；不追求湊到 150–200 筆，也不做類型配額。使用者最新指示優先。
-
-企業共通工作為主，少量產業例子補充。Startup Radar 的 22 個工作方向只作探索參考，不代表 99 Problems 已覆蓋。repo 是資源容器；Skill／Tool／Agent 可重疊，集合與單項能力要區分。只拆分有獨立來源依據的子項目，不把功能清單變成虛構資源。
+能力深化 review 與替換延後；首版為「工作 → 具體能力 → 2–4 個候選」，32 個主題、84 個資源。企業共通工作優先，少量產業例子補充，不湊筆數、不做類型配額。Startup Radar 的工作 ID 只作探索參考，不代表 99 Problems 已覆蓋。
 
 ## 每輪流程
 
 1. 先讀本檔、docs/progress.md、data/processed/resources/progress.json。
-2. 按使用者指定範圍工作；下一輪只做 Layer 1；Layer 2／3 待使用者後續指示。
+2. 按使用者指定範圍工作；目前 Layer 1 已完成；Layer 2／3 待使用者後續指示。
 3. raw 保持原樣，在 processed 整理。更新資料後執行 scripts/validate/validate_catalog.py。
 4. 文件記錄數量、來源依據、缺口、限制與下一步；候選、已整理、已測試分開計數。
 
@@ -25,4 +23,4 @@
 - GitHub Trending 已另存本週榜單 15 筆快照，見 docs/trending-review.md；不計入能力覆蓋，沒有自動更新。
 - 本階段不安裝或執行第三方資源，不建立共用 data layer、全量 matching、自動排程、評分系統或 Agent 執行管線。
 
-資料矛盾或重大範圍變動再找使用者討論；一般缺漏直接記錄，不打斷工作。未來網站維持極簡、中英文、JSON 動態列表／詳情；先 review 資料，再確認入口與實作。
+資料矛盾或重大範圍變動再找使用者討論；一般缺漏直接記錄，不打斷工作。未來網站維持極簡、中英文、JSON 動態列表／詳情；後續保持穩定 ID 與動態 JSON，不因替換候選重做介面。

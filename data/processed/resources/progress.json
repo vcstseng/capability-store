@@ -2,8 +2,8 @@
   "schema_version": "0.1-draft",
   "project": "capability-store",
   "updated_at": "2026-11-04",
-  "phase": "prototype_curation",
-  "status": "data_prototype_uploaded",
+  "phase": "website_layer_1",
+  "status": "layer_1_complete",
   "record_limit": null,
   "source_count": 5,
   "latest_snapshot": "data/raw/snapshots/sources-20261104T114042Z",
@@ -27,6 +27,6 @@
   "repository_url": "https://github.com/vcstseng/capability-store",
   "repository_visibility": "public",
   "initial_upload_commit": "f5d17d2",
-  "next_step": "minimal_bilingual_layer_1",
-  "website_status": "not_implemented_or_deployed"
+  "next_step": "review_layer_1_then_discuss_layer_2",
+  "website_status": "layer_1_built_pending_deployment"
 }
