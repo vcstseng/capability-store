@@ -78,3 +78,26 @@ copy.en.topicIntros={
 'payments':'Compare tool entry points for payments, catalogs, orders and commerce.',
 'forecasting':'Compare the scope of time-series forecasting and data analysis tools.',
 'procurement-search':'These candidates query public procurement data in Germany and Russia respectively. Check regional coverage.'};
+
+Object.assign(copy.zh,{
+intro:'從企業工作出發，探索可能需要的能力，再評估沿用、組合或自行開發。',
+footer:'能力構想尚未實作；現成資源僅作後續評估線索。',
+businessDomainUnit:'個企業領域',conceptUnit:'個能力構想',conceptCountLabel:'能力構想數',conceptStep:'02 能力構想',
+conceptIntro:'按工作環節探索能力構想，再評估沿用、組合或自建。',
+conceptBadge:'Concept prototype · 尚未實作',conceptBoundary:'以下構想尚未實作，不代表已驗證的問題解法。',
+conceptSummary:(s,n)=>`${s} 個工作環節 · ${n} 個能力構想`,conceptAcquisition:'未來可沿用、調整、組合或自建',conceptQuantity:n=>`${n} 個構想`,
+kindGuide:'Skill、Tool、Agent、Workflow 有什麼不同？',kindDefinitions:'Skill：可重用的分析或操作方法。Tool：明確輸入輸出的計算或查詢功能。Agent：在限定任務內整理資訊、判斷下一步。Workflow：把步驟、交接與核准串成流程。類型可以組合，不代表已部署。',
+idea:'構想',expectedInput:'預期輸入',expectedOutput:'預期產出',humanDecision:'人工決策與限制',
+referenceHeading:'可能可以用的 GitHub 資源',referenceNote:'從既有候選整理的實現線索，尚未核對能否支援上述構想。',referenceStatus:'待評估',possibleStep:'可能參考的環節：',
+referenceBoundary:'不代表一個 repo 就能完成整個構想；也可能需要調整、組合或自行開發。'});
+Object.assign(copy.en,{
+intro:'Start with enterprise work, explore the capabilities it may need, then consider reuse, adaptation, composition or custom development.',
+footer:'Capability concepts are not implemented. Existing resources are leads for later assessment.',
+businessDomainUnit:'business domains',conceptUnit:'capability concepts',conceptCountLabel:'Capability concepts',conceptStep:'02 Capability concepts',
+conceptIntro:'Explore capability ideas by work stage, then consider reuse, composition or custom development.',
+conceptBadge:'Concept prototype · Not implemented',conceptBoundary:'Design concepts only: not implemented or validated as business solutions.',
+conceptSummary:(s,n)=>`${s} work stages · ${n} capability concepts`,conceptAcquisition:'Potential routes: reuse, adapt, combine or build',conceptQuantity:n=>`${n} concepts`,
+kindGuide:'How do skills, tools, agents and workflows differ?',kindDefinitions:'Skill: a reusable method for analysis or operations. Tool: a defined calculation or query. Agent: gathers information and reasons about next steps within a bounded task. Workflow: connects steps, handoffs and approvals. Types can be combined; none implies deployment.',
+idea:'Concept',expectedInput:'Expected input',expectedOutput:'Expected output',humanDecision:'Human decisions and limits',
+referenceHeading:'GitHub resources that may help',referenceNote:'Implementation leads from the existing candidate pool. Their fit to these concepts has not been verified.',referenceStatus:'To assess',possibleStep:'Potential reference for: ',
+referenceBoundary:'A repository is not assumed to deliver a complete concept. Adaptation, composition or custom development may be needed.'});

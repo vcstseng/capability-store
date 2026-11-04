@@ -1,19 +1,18 @@
 # 能力便利商店 / Capability Store
 
-按工作探索現成工具、Skills 與 Agent 範例的中英文 prototype，延續 Startup Radar 的極簡風格。
+以 99 Problems 的十個企業領域探索可能需要的 Skills、Tools、Agents 與 Workflows。
 
-- [開啟網站 / Open website](https://vcstseng.github.io/capability-store/)
-- [GitHub Repository](https://github.com/vcstseng/capability-store)
-- [能力資料 review](docs/prototype-review.md) · [Trending 快照](docs/trending-review.md) · [進度](docs/progress.md)
-- 資料：32 個能力主題、84 個候選資源；另有 15 筆 Trending 週榜快照。已整理不代表已安裝、測試或適用性驗證。
+- [開啟網站](https://vcstseng.github.io/capability-store/)
+- [銷售能力構想](https://vcstseng.github.io/capability-store/?lang=zh&work=business-sales&view=results)
+- [十領域構想 review](docs/business-concepts-review.md) · [進度](docs/progress.md)
 
-目前 Layer 1 以 99 Problems 分類為主：10 個企業領域、4 個有相關候選的 AI 面向，共 14 個入口。每類顯示能力例子與主題數，中英文與網址狀態同步。GitHub 熱門快照為次要入口，預設 3 筆，可展開 15 筆。
+目前 L2 有 **60 個構想、30 個工作環節、10 個企業領域**。用途、預期輸入／產出與人工決策點均有中英文。這些是尚未實作的設計假說，不是現成工具或已驗證方案。
 
-首頁目前可探索 28 個主題、74 個候選；完整資料仍保留 32 個主題、84 個候選，4 個產業主題暫未對應主入口。導覽關係不代表已驗證能解決某個企業問題。Layer 2 已完成能力導覽與緊湊候選比較；基本資源頁已接通，供查閱來源及已知範圍。
+每領域另有 2 個既有 GitHub 候選作實現線索，標示待評估；不假設單一 repo 能實現整個構想。之後可沿用、調整、組合或自建。原有資源資料、AI 參考入口與基本資源頁保留，本輪不擴充 L3。
 
 ## 本機預覽
 
-Node.js 22+、Python 3。沒有需要安裝的前端套件。
+Node.js 22+、Python 3，無前端套件安裝需求。
 
 ```text
 cd web
@@ -22,19 +21,6 @@ npm run build
 npm run dev
 ```
 
-瀏覽器開啟 http://127.0.0.1:4174/；使用 HTTP 預覽，不直接開 file://。
+開啟 http://127.0.0.1:4174/ 。GitHub Pages 使用 .github/workflows/deploy.yml 發布 web/dist。
 
-GitHub Pages 使用 `.github/workflows/deploy.yml` 建置與發布 `web/dist`。原始來源及候選池留在 repo，網站僅發布入口需要的精簡 JSON。
-
-資料完整性核對：`python scripts/validate/validate_catalog.py`。來源聲明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。不安裝第三方候選、不做自動 matching 或共用資料層。
-
-## Layer 2
-
-- [採購能力列表](https://vcstseng.github.io/capability-store/?lang=zh&work=business-procurement&view=results)
-- [GitHub 熱門快照列表](https://vcstseng.github.io/capability-store/?lang=zh&view=results&source=trending)
-
-從 L1 點分類即可直接進入 L2。候選先進站內詳情，再決定是否開啟原始來源；L2 強調具體工作與可取得的輸入／輸出。支援雙語、直接網址、返回位置與同頁主題跳轉。能力資源維持穩定 ID，不因跨分類探索而複製。
-
-2026-11-04 UX 簡化：分類是直接導覽連結，不需先選取或確認；返回首頁保留閱讀位置與焦點。
-
-2026-11-04 L2 改版：基本資源頁使用 `view=resource&id=...` 動態讀既有 JSON。7 個候選有來源支持的輸入／輸出註記，其餘留空；不新增未查證的使用條件。
+構想資料：data/processed/concepts/business-concepts.json。原來源資料：data/processed/catalog/catalog.json；raw 快照保留不改。第三方說明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

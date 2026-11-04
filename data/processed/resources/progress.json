@@ -2,8 +2,8 @@
   "schema_version": "0.1-draft",
   "project": "capability-store",
   "updated_at": "2026-11-04",
-  "phase": "website_layer_2",
-  "status": "layer_2_comparison_complete",
+  "phase": "concept_prototype_layer_2",
+  "status": "business_concepts_complete",
   "record_limit": null,
   "source_count": 5,
   "latest_snapshot": "data/raw/snapshots/sources-20261104T114042Z",
@@ -27,8 +27,8 @@
   "repository_url": "https://github.com/vcstseng/capability-store",
   "repository_visibility": "public",
   "initial_upload_commit": "f5d17d2",
-  "next_step": "review_comparison_and_basic_resource_page",
-  "website_status": "comparison_revision_deployed",
+  "next_step": "review_business_concepts_layer_2",
+  "website_status": "concept_revision_pending_deployment",
   "website_url": "https://vcstseng.github.io/capability-store/",
   "website_commit": "f4493ac",
   "deployment_run_id": 41857541549,
@@ -36,5 +36,10 @@
   "portal_capability_count": 28,
   "portal_resource_count": 74,
   "portal_taxonomy_reference": "99-problems",
-  "input_output_annotation_count": 7
+  "input_output_annotation_count": 7,
+  "concept_domain_count": 10,
+  "concept_count": 60,
+  "concept_stage_count": 30,
+  "concept_reference_placements": 20,
+  "concept_reference_unique_resources": 19
 }

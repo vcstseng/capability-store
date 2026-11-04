@@ -1,9 +1,10 @@
 import { readExploreRoute as readRoute, exploreSearch as routeSearch, positionKey, workResults } from './results.js';
 import { copy } from './copy.js';
+import { conceptPage } from './concepts.js';
 
 const app = document.querySelector('#app');
-let portal, trending, results;
-const failed = { portal: false, trending: false, results: false };
+let portal, trending, results, concepts;
+const failed = { portal: false, trending: false, results: false, concepts: false };
 const loading = new Set();
 let preferred = 'zh';
 try { preferred = localStorage.getItem('capability-store-language') || 'zh'; } catch {}
@@ -52,6 +53,7 @@ function restorePosition() {
   if ((state.view === 'resource' || state.view === 'results') && state.source === 'work' && state.work && !results && !failed.results) return;
   if (state.view === 'results' && state.source === 'trending' && !trending && !failed.trending) return;
   if (state.view === 'resource' && ((!results && !failed.results) || (state.id?.startsWith('github:') && !trending && !failed.trending))) return;
+  if (state.view === 'results' && portal?.works.find(w=>w.id===state.work)?.concept_count && !concepts && !failed.concepts) return;
   const target = pendingPosition;
   pendingPosition = null;
   requestAnimationFrame(() => {
@@ -75,13 +77,13 @@ function trendingRow(repo, full = false) {
 }
 function portalContent(t) {
   return `<section class="intro" aria-labelledby="page-title"><p class="eyebrow">CAPABILITY STORE</p><h1 id="page-title" tabindex="-1">${t.heading}</h1><p class="intro-text">${t.intro}</p>
-    ${portal ? `<div class="dataset-counts"><span><strong>${portal.capability_count}</strong> ${t.themes}</span><span><strong>${portal.resource_count}</strong> ${t.resources}</span></div>` : ''}</section>
+    ${portal ? `<div class="dataset-counts"><span><strong>${portal.concept_domain_count ?? portal.capability_count}</strong> ${portal.concept_count ? t.businessDomainUnit : t.themes}</span><span><strong>${portal.concept_count ?? portal.resource_count}</strong> ${portal.concept_count ? t.conceptUnit : t.resources}</span></div>` : ''}</section>
     <section class="work-section" aria-labelledby="work-heading">
       <div class="section-header"><div><h2 id="work-heading" tabindex="-1">${t.explore}</h2><p>${t.exploreHint}</p></div></div>
       ${portal ? `${portal.groups.map(group => {
         const works = portal.works.filter(work => work.group === group.id);
         if (!works.length) return '';
-        return `<section class="work-group" aria-labelledby="group-${e(group.id)}"><div class="group-heading"><h3 id="group-${e(group.id)}">${e(group.label[state.lang])}</h3><span>${t.countLabel}</span></div><div class="work-grid">${works.map(work => `<a class="work-card" data-work="${e(work.id)}" data-route="forward" href="${e(href({ view: 'results', source: 'work', work: work.id }))}" aria-label="${e(label(work))}, ${work.theme_count} ${t.themes}"><span class="work-copy"><span class="work-label">${e(label(work))}</span><span class="work-examples">${state.lang === 'zh' ? '例如：' : 'e.g. '}${e(work.examples.map(example => example[state.lang]).join(state.lang === 'zh' ? '、' : ' · '))}</span></span><span class="work-count">${work.theme_count}<span class="work-arrow" aria-hidden="true">→</span></span></a>`).join('')}</div></section>`;
+        return `<section class="work-group" aria-labelledby="group-${e(group.id)}"><div class="group-heading"><h3 id="group-${e(group.id)}">${e(group.label[state.lang])}</h3><span>${group.id === 'business' ? t.conceptCountLabel : t.countLabel}</span></div><div class="work-grid">${works.map(work => `<a class="work-card" data-work="${e(work.id)}" data-route="forward" href="${e(href({ view: 'results', source: 'work', work: work.id }))}" aria-label="${e(label(work))}, ${work.concept_count ?? work.theme_count} ${work.concept_count ? t.conceptUnit : t.themes}"><span class="work-copy"><span class="work-label">${e(label(work))}</span><span class="work-examples">${state.lang === 'zh' ? '例如：' : 'e.g. '}${e(work.examples.map(example => example[state.lang]).join(state.lang === 'zh' ? '、' : ' · '))}</span></span><span class="work-count">${work.concept_count ?? work.theme_count}<span class="work-arrow" aria-hidden="true">→</span></span></a>`).join('')}</div></section>`;
       }).join('')}<p class="section-footnote">${t.visible}</p><p class="reference-note">${state.lang === 'zh' ? '分類沿用 ' : 'Categories follow '}${external('https://vcstseng.github.io/99-problems/pages/problem-map/index.html', '99 Problems ↗')}<span>${state.lang === 'zh' ? '；候選可支援的步驟與適用性仍需確認。' : '; supported steps and suitability still need assessment.'}</span></p>` : loadState('portal')}
     </section>
     <section class="trending-section" aria-labelledby="trending-heading">
@@ -116,7 +118,19 @@ function detailContent(t) {
 function returnLink(t, extraClass = '') {
   return `<a class="outline-button ${extraClass}" data-route="return" href="${e(href({ view: 'portal', source: 'work' }))}">${t.backToWork}</a>`;
 }
+function conceptResultsContent(t) {
+  const work=portal.works.find(w=>w.id===state.work);
+  const header=`<nav class="journey" aria-label="${t.journey}"><a data-route="return" href="${e(href({view:'portal',source:'work'}))}">${t.backToWork}</a><span aria-hidden="true">／</span><span aria-current="page">${t.conceptStep}</span></nav><section class="intro results-intro"><p class="eyebrow">CAPABILITY CONCEPTS</p><h1 id="page-title" tabindex="-1">${e(label(work))}</h1><p class="intro-text">${t.conceptIntro}</p></section>`;
+  if (!concepts) return header+loadState('concepts');
+  const page=conceptPage(concepts,state.work);
+  if (!page) return header+`<p>${t.invalidWorkHint}</p>`+returnLink(t);
+  const count=new Set(page.stages.flatMap(s=>s.concept_ids)).size;
+  const kinds={skill:'Skill',tool:'Tool',agent:'Agent',workflow:'Workflow'};
+  return header+`<div class="concept-status"><span class="concept-badge">${t.conceptBadge}</span><p>${t.conceptBoundary}</p></div><div class="results-context"><p>${t.conceptSummary(page.stages.length,count)}</p><span>${t.conceptAcquisition}</span></div><nav class="theme-overview theme-jumps concept-overview" aria-label="${t.themeNavigation}">${page.stages.map(stage=>`<a href="#${e(stage.id)}"><span>${e(stage.label[state.lang])}</span><small>${t.conceptQuantity(stage.concepts.length)}</small></a>`).join('')}</nav><details class="kind-guide"><summary>${t.kindGuide}</summary><p>${t.kindDefinitions}</p></details><div class="concept-stages">${page.stages.map(stage=>`<section class="concept-stage" id="${e(stage.id)}" aria-labelledby="title-${e(stage.id)}"><div class="concept-stage-heading"><h2 id="title-${e(stage.id)}">${e(stage.label[state.lang])}</h2><span>${t.conceptQuantity(stage.concepts.length)}</span></div><div class="concept-grid">${stage.concepts.map(concept=>`<article class="concept-card" id="${e(concept.id)}"><span class="type-tag">${kinds[concept.kind]} · ${t.idea}</span><h3>${e(concept.name[state.lang])}</h3><p class="concept-purpose">${e(concept.purpose[state.lang])}</p><dl class="concept-io"><div><dt>${t.expectedInput}</dt><dd>${e(concept.input[state.lang])}</dd></div><div><dt>${t.expectedOutput}</dt><dd>${e(concept.output[state.lang])}</dd></div></dl><details class="human-boundary"><summary>${t.humanDecision}</summary><p>${e(concept.human_decision[state.lang])}</p></details></article>`).join('')}</div></section>`).join('')}</div><aside class="reference-block" aria-labelledby="reference-heading"><div class="section-header"><div><h2 id="reference-heading">${t.referenceHeading}</h2><p>${t.referenceNote}</p></div></div>${page.references.filter(ref=>ref.url).map(ref=>`<div class="reference-row">${external(ref.url,ref.name,'reference-link')}<span class="reference-status">${t.referenceStatus}</span><p>${t.possibleStep}${e(ref.reason[state.lang])}</p></div>`).join('')}<p class="section-footnote">${t.referenceBoundary}</p></aside><div class="results-bottom">${returnLink(t)}</div>`;
+}
+
 function resultsContent(t) {
+  if (state.source === 'work' && portal?.works.find(w=>w.id===state.work)?.concept_count) return conceptResultsContent(t);
   const isTrending = state.source === 'trending';
   const work = portal?.works.find(w => w.id === state.work);
   const title = isTrending ? t.trending : work ? label(work) : portal ? t.invalidWork : t.resultStep;
@@ -143,7 +157,7 @@ function render() {
   document.documentElement.lang = state.lang === 'zh' ? 'zh-Hant' : 'en';
   document.title = isResults ? `${page} · ${t.title}` : `${t.title} · ${t.tagline}`;
   document.querySelector('meta[name="description"]').content = isResults ? t.resultsIntro : t.intro;
-  app.innerHTML = `<div class="app-shell${isResults ? ' results-view' : ''}"><a class="skip-link" href="${isResults ? '#page-title' : '#work-heading'}">${isResults ? t.skipResults : t.skip}</a><header class="masthead"><a class="wordmark" href="${e(href({ view: 'portal', source: 'work', work: null }))}" data-home>${t.title}<span class="brand-dot" aria-hidden="true"></span></a><div class="masthead-tools"><span class="masthead-note">${t.tagline}</span><nav class="language-switch" aria-label="Language"><button type="button" lang="zh-Hant" data-language="zh" aria-pressed="${state.lang === 'zh'}">中文</button><button type="button" lang="en" data-language="en" aria-pressed="${state.lang === 'en'}">English</button></nav></div></header><main>${isDetail ? detailContent(t) : isResults ? resultsContent(t) : portalContent(t)}</main><footer><p>${t.footer}</p><div><span>${isDetail ? t.detailTitle : isResults ? t.resultStep : t.prototype}</span>${external('https://github.com/vcstseng/capability-store', t.repo)}</div></footer><p id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p></div>`;
+  app.innerHTML = `<div class="app-shell${isResults ? ' results-view' : ''}"><a class="skip-link" href="${isResults ? '#page-title' : '#work-heading'}">${isResults ? t.skipResults : t.skip}</a><header class="masthead"><a class="wordmark" href="${e(href({ view: 'portal', source: 'work', work: null }))}" data-home>${t.title}<span class="brand-dot" aria-hidden="true"></span></a><div class="masthead-tools"><span class="masthead-note">${t.tagline}</span><nav class="language-switch" aria-label="Language"><button type="button" lang="zh-Hant" data-language="zh" aria-pressed="${state.lang === 'zh'}">中文</button><button type="button" lang="en" data-language="en" aria-pressed="${state.lang === 'en'}">English</button></nav></div></header><main>${isDetail ? detailContent(t) : isResults ? resultsContent(t) : portalContent(t)}</main><footer><p>${t.footer}</p><div><span>${isDetail ? t.detailTitle : isResults ? (state.source === 'work' && portal?.works.find(w=>w.id===state.work)?.concept_count ? t.conceptStep : t.resultStep) : t.prototype}</span>${external('https://github.com/vcstseng/capability-store', t.repo)}</div></footer><p id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p></div>`;
   restorePosition();
 }
 
@@ -187,6 +201,9 @@ async function load(part) {
       portal = data;
       state = readRoute(location.search, portal.works.map(w => w.id), preferred);
       if (new URLSearchParams(location.search).get('work') && state.work) history.replaceState(history.state, '', location.pathname + routeSearch(state) + location.hash);
+    } else if (part === 'concepts') {
+      if (!Array.isArray(data.domains) || !Array.isArray(data.concepts)) throw new Error('Invalid concepts');
+      concepts = data;
     } else if (part === 'results') {
       if (!Array.isArray(data.capabilities) || !Array.isArray(data.resources)) throw new Error('Invalid results');
       results = data;
@@ -199,6 +216,7 @@ async function load(part) {
   render(); ensureData();
 }
 function ensureData() {
+  if (state.view === 'results' && state.source === 'work' && portal?.works.find(w=>w.id===state.work)?.concept_count && !concepts && !failed.concepts) load('concepts');
   if ((state.view === 'resource' || (state.view === 'results' && state.source === 'work' && state.work)) && portal && !results && !failed.results) load('results');
 }
 render();

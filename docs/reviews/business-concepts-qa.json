@@ -1,0 +1,25 @@
+{
+  "scope": "Ten business domains concept L2",
+  "domains": 10,
+  "stages": 30,
+  "concepts": 60,
+  "types": {
+    "skill": 23,
+    "tool": 17,
+    "agent": 10,
+    "workflow": 10
+  },
+  "references": 20,
+  "unique_reference_resources": 19,
+  "browser_domains_verified": 10,
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "mobile_css_width": 375,
+  "horizontal_overflow": false,
+  "console_errors": 0,
+  "implementation_status": "concept_only",
+  "source_review": "Existing candidate data only; no external source research this round",
+  "new_layer_3": false
+}

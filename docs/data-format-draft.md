@@ -33,3 +33,7 @@ L2 以 portal 的 capability_ids 取資料，計數按穩定 ID 去重。找不�
 ## 比較顯示註記與基本資源頁
 
 `config/resource-display.json` 以既有 resource ID 記錄可由英文來源支持的雙語 input／output，未知為 null；basis_description_en 保留依據。建置時核對原文相符，不改 catalog。精簡 results.json 增加可選 display 欄位。資源網址 view=resource，id 為 cap-穩定ID 或 github:owner/repo；兩者不假合併。純導覽與資料引用，沒有推斷問題適用性。
+
+## 構想資料（0.1-concepts）
+
+另存 domains／stages／concepts。domain 沿用 99 Problems 對齊的 business-* ID；stage 用 concept_ids 關聯穩定 idea-* ID。每構想有 kind、雙語 name／purpose／input／output／human_decision、status=concept_only、implementation=null。domain.references 只存既有 resource_id、GitHub URL、雙語可能用途及 status=unverified_reference。概念、來源與驗證狀態不得混合；不宣稱已覆蓋所有問題。

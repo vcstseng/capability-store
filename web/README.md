@@ -23,3 +23,5 @@ L2 工作入口：`?lang=en&work=business-procurement&view=results`；熱門入�
 2026-11-04 UX 簡化：分類是直接導覽連結，不需先選取或確認；返回首頁保留閱讀位置與焦點。
 
 最新 L2：能力總覽、主題工作說明與緊湊候選列；查看詳情進 `view=resource&id=cap-...` 或 `id=github:owner/repo`。保留 work、source、lang、problem 情境；返回恢復候選位置與焦點。無列表情境的資源網址回分類入口。外部資源連結只在基本詳情頁提供。
+
+最新企業 L2 改為構想式 prototype：src/concepts.js 與 concepts.json 以既有 work ID 連接。L1 同步構想計數，AI 原有資源不變。構想在 L2 閱讀用途、預期輸入／產出與人工決策點，沒有執行或新 L3 按鈕；GitHub 參考另列。

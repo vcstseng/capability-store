@@ -1,38 +1,25 @@
 # 能力便利商店：每輪工作指引
 
-## 最新決定（2026-11-04）
+## 最新方向：構想式 L2（2026-11-04）
 
-本輪最新 L2 改版：能力導覽＋緊湊比較列表，候選進站內基本資源頁，再前往外部。L2 顯示名稱、類型、具體工作及有來源支持的輸入／輸出；來源／所屬 repo／查核依據移到資源頁。此最小資源頁已為 L2 路徑接通，不再適用下方歷史「L3 未實作」描述。完整資料研究與進階 L3 留待 review。
+使用者明確指定：對齊 99 Problems 的十個企業領域，用想像力定義可能需要的 Skills、Tools、Agents、Workflows，不必有真實 repo，不逐題解完問題。每領域可有多個同類型能力，不能為配額湊數。
 
+目前 60 個構想／30 個工作環節／10 個領域，資料為 data/processed/concepts/business-concepts.json。每筆有雙語用途、預期輸入與產出、人工決策點，status=concept_only，implementation=null。構想為設計假說，不能冒充已實作、已驗證、已部署或可直接使用。
 
-最新 UX 決定：L1 是分類導覽，點分類直接進 L2，使用一般連結與箭頭；不做單選確認面板、清除選擇或多選。返回首頁復原閱讀位置及原分類鍵盤焦點。先維持簡單，不因未來整合加入選取流程。
+各領域另放 2 個既有 GitHub 候選作參考；與構想分開，標示待評估，不宣稱匹配成功。原始資料與既有 catalog 保留。原有 AI 四個入口仍為資源參考，不冒充新增構想。
 
-
-最終會整合 99 Problems、Startup Radar、Capability Store 與 Consulting Agents。Capability Store 首頁以 99 Problems 的 10 個企業領域及 5 個 AI 面向為參考，僅顯示有相關候選的分類，目前為 10＋4。Startup Radar 僅作產品與解法參考，舊的工作對應保留在 catalog 以便溯源，不再作首頁分類。
-
-本輪已完成動態 L2（工作分組與獨立 Trending 列表），L3 尚未實作。每個入口有能力例子，共通能力可支援多個工作，計數按穩定 ID 去重。首頁目前 28 主題／74 資源；完整 catalog 保留 32／84，4 個產業主題不硬配、不刪除。導覽關係另存 config/taxonomy/portal-navigation.json，不當作已驗證 Problem matching。
-
-保持 Startup Radar 的極簡風格、中英文、網址與返回狀態。Trending 為次要的「GitHub 熱門快照」，3 筆預覽／15 筆完整榜單，不宣稱即時更新。空分類先不顯示，不湊數。Layer 2 已完成，接著先 review，再按使用者指示做 Layer 3。
-
-公開 repo：vcstseng/capability-store，main；網站 https://vcstseng.github.io/capability-store/。完成輪次後更新 docs、同步 GitHub 與發布結果。能力深化 review 及替換延後，不建共用資料層、自動 matching 或 Agent 執行管線。
+L1 是分類連結，直接進 L2；L2 按工作環節展示構想、輸入／產出與人類判斷。保持極簡、中英文、分享網址與返回位置。本輪只完成十個企業領域 L2，不擴充 L3；基本資源頁保留。不要加入搜尋、評分、全量 matching、共用資料平台或執行管線。
 
 ## 每輪流程
 
 1. 先讀本檔、docs/progress.md、data/processed/resources/progress.json。
-2. 按使用者指定範圍工作；目前 Layer 1／2 已完成；Layer 3 待使用者後續指示。
-3. raw 保持原樣，在 processed 整理。更新資料後執行 scripts/validate/validate_catalog.py。
-4. 文件記錄數量、來源依據、缺口、限制與下一步；候選、已整理、已測試分開計數。
+2. 使用者最新指示優先。創作授權只適用明確標示的構想；真實 repo 的功能、授權、維護、價格與成效仍不得捏造。
+3. 不改 raw 或既有來源候選內容。修改構想資料要維持 ID 與雙語欄位，補充依據與設計假說分清楚。
+4. 執行 web 的相關測試／建置與必要的資料驗證，完成後更新 docs、GitHub 及公開部署。
+5. 不安裝或執行第三方資源，不全面搜尋 GitHub，除非使用者另有指示。
 
-## 資料原則
+## 整合方向
 
-- 中英文從資料階段保留。中文概括忠於來源，英文描述保留原文；標籤使用穩定 ID。
-- 已整理只是回讀來源清單的項目，不代表原始 repo 已審查、已安裝、已測試或有採用實績。
-- 缺漏保留 null。來源清單的 Stars／授權不得套給子資源；不捏造維護狀態、價格、整合方式或成效。
-- 跨來源同名不自動合併；完全相同 URL 整併仍可能有別名，保留來源與固定 commit、檔案、行號。
-- 大型集合保留集合標示；不要求使用者到集合裡重新找所有東西。
-- GitHub Trending 已另存本週榜單 15 筆快照，見 docs/trending-review.md；不計入能力覆蓋，沒有自動更新。
-- 本階段不安裝或執行第三方資源，不建立共用 data layer、全量 matching、自動排程、評分系統或 Agent 執行管線。
+99 Problems 提供問題起點；Startup Radar 提供產品與解法參考；能力探索提供能力設計與實現線索；Consulting Agents 未來再評估沿用、調整、組合、自建及可行性。分類相同不等於逐題匹配，也不證明市場需求或實際效果。
 
-資料矛盾或重大範圍變動再找使用者討論；一般缺漏直接記錄，不打斷工作。未來網站維持極簡、中英文、JSON 動態列表／詳情；後續保持穩定 ID 與動態 JSON，不因替換候選重做介面。
-
-L2 使用單一模板與精簡 JSON；返回狀態、雙語與穩定 ID 一起維護。L2 詳情連結開啟站內資源頁，原始來源外連集中於資源頁。網址 problem 只保留情境，不視為匹配證據。
+公開 repo：vcstseng/capability-store，main。網站：https://vcstseng.github.io/capability-store/ 。詳細內容見 docs/business-concepts-review.md。
