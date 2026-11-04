@@ -2,6 +2,9 @@
 
 ## 最新決定（2026-11-04）
 
+最新 UX 決定：L1 是分類導覽，點分類直接進 L2，使用一般連結與箭頭；不做單選確認面板、清除選擇或多選。返回首頁復原閱讀位置及原分類鍵盤焦點。先維持簡單，不因未來整合加入選取流程。
+
+
 最終會整合 99 Problems、Startup Radar、Capability Store 與 Consulting Agents。Capability Store 首頁以 99 Problems 的 10 個企業領域及 5 個 AI 面向為參考，僅顯示有相關候選的分類，目前為 10＋4。Startup Radar 僅作產品與解法參考，舊的工作對應保留在 catalog 以便溯源，不再作首頁分類。
 
 本輪已完成動態 L2（工作分組與獨立 Trending 列表），L3 尚未實作。每個入口有能力例子，共通能力可支援多個工作，計數按穩定 ID 去重。首頁目前 28 主題／74 資源；完整 catalog 保留 32／84，4 個產業主題不硬配、不刪除。導覽關係另存 config/taxonomy/portal-navigation.json，不當作已驗證 Problem matching。

@@ -33,4 +33,6 @@ GitHub Pages 使用 `.github/workflows/deploy.yml` 建置與發布 `web/dist`。
 - [採購能力列表](https://vcstseng.github.io/capability-store/?lang=zh&work=business-procurement&view=results)
 - [GitHub 熱門快照列表](https://vcstseng.github.io/capability-store/?lang=zh&view=results&source=trending)
 
-從 L1 選擇工作後點「查看能力」。候選可直接前往原始來源；類型、來源與尚未實測狀態清楚標示。支援雙語、直接網址、返回位置與同頁主題跳轉。能力資源維持穩定 ID，不因跨分類探索而複製。
+從 L1 點分類即可直接進入 L2。候選可直接前往原始來源；類型、來源與尚未實測狀態清楚標示。支援雙語、直接網址、返回位置與同頁主題跳轉。能力資源維持穩定 ID，不因跨分類探索而複製。
+
+2026-11-04 UX 簡化：分類是直接導覽連結，不需先選取或確認；返回首頁保留閱讀位置與焦點。

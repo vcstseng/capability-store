@@ -44,3 +44,9 @@ test('share links preserve view, source, language and opaque problem context wit
   assert.equal(readExploreRoute('?view=results&work=unknown', []).work, null);
   assert.equal(readExploreRoute('?problem=https://example.com', []).problem, null);
 });
+
+test('returning to the portal restores the same position across category routes', () => {
+  const home = { lang: 'zh', work: null, view: 'portal', source: 'work', problem: null };
+  assert.equal(positionKey(home), positionKey({ ...home, work: 'business-procurement', lang: 'en' }));
+  assert.notEqual(positionKey(home), positionKey({ ...home, view: 'results', work: 'business-procurement' }));
+});

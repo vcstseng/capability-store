@@ -37,10 +37,12 @@ function updateState(next, replace = false) {
 }
 function go(next, restore = false) {
   savePosition();
+  if (next.view === 'results' && next.source === 'work') history.replaceState({ ...history.state, focusWork: next.work }, '', location.href);
+  const focusWork = restore && next.view === 'portal' ? state.work : null;
   state = { ...state, ...next };
   const top = restore ? positions[positionKey(state)] || 0 : 0;
   history.pushState({ scrollY: top }, '', location.pathname + routeSearch(state));
-  pendingPosition = { top, focus: !restore };
+  pendingPosition = { top, focus: !restore, focusWork };
   render(); ensureData();
 }
 function restorePosition() {
@@ -55,23 +57,8 @@ function restorePosition() {
       if (element) { element.scrollIntoView(); return; }
     }
     window.scrollTo(0, target.top);
-    if (target.focus) document.querySelector('#page-title')?.focus({ preventScroll: true });
-  });
-}
-function announce(text) { document.querySelector('#announcer').textContent = text; }
-function selectedMarkup(t) {
-  const work = portal?.works.find(work => work.id === state.work);
-  return work ? `<div class="selection-content"><div><p class="micro-label">${t.selected}</p><h3>${e(label(work))}</h3><p>${t.groupCount(work.theme_count, work.resource_count)}</p><p class="selection-examples">${e(work.examples.map(example => example[state.lang]).join(state.lang === 'zh' ? '、' : ' · '))}</p></div><div class="selection-actions"><a class="primary-button" data-route="forward" href="${e(href({ view: 'results', source: 'work' }))}">${t.viewCapabilities}</a><button class="text-button" data-clear>${t.clear}</button></div></div>` : '';
-}
-function renderWorkSelection() {
-  const container = document.querySelector('#selected-work');
-  if (!container) return;
-  container.hidden = !state.work;
-  container.innerHTML = selectedMarkup(copy[state.lang]);
-  document.querySelectorAll('[data-work]').forEach(button => {
-    const selected = button.dataset.work === state.work;
-    button.setAttribute('aria-pressed', String(selected));
-    button.querySelector('.work-arrow').textContent = selected ? '✓' : '+';
+    if (state.view === 'portal' && target.focusWork) document.querySelector(`[data-work="${target.focusWork}"]`)?.focus({ preventScroll: true });
+    else if (target.focus) document.querySelector('#page-title')?.focus({ preventScroll: true });
   });
 }
 function loadState(part, message) {
@@ -83,16 +70,14 @@ function trendingRow(repo, full = false) {
   return `<li class="trending-row" id="repo-${e(repo.repository.toLowerCase().replace('/', '--'))}"><span class="rank" aria-hidden="true">${String(repo.rank_in_snapshot).padStart(2, '0')}</span><div class="trending-copy"><div class="candidate-title">${external(repo.url, repo.repository, 'repo-link')}${full ? `<span class="type-tag">${t.githubProject}</span>` : ''}</div><p ${repo.summary[state.lang] ? '' : 'class="missing-description"'}>${e(repo.summary[state.lang] || t.noDescription)}</p>${full ? `<p class="candidate-origin">GitHub Trending · ${date(trending.observed_at)}</p>` : ''}</div><div class="star-signal"><span class="stars">${repo.weekly_stars == null ? '—' : '+' + new Intl.NumberFormat(locale()).format(repo.weekly_stars)}</span><span>${t.weekly}</span></div></li>`;
 }
 function portalContent(t) {
-  const selected = portal?.works.find(w => w.id === state.work);
   return `<section class="intro" aria-labelledby="page-title"><p class="eyebrow">CAPABILITY STORE</p><h1 id="page-title" tabindex="-1">${t.heading}</h1><p class="intro-text">${t.intro}</p>
     ${portal ? `<div class="dataset-counts"><span><strong>${portal.capability_count}</strong> ${t.themes}</span><span><strong>${portal.resource_count}</strong> ${t.resources}</span></div>` : ''}</section>
     <section class="work-section" aria-labelledby="work-heading">
       <div class="section-header"><div><h2 id="work-heading" tabindex="-1">${t.explore}</h2><p>${t.exploreHint}</p></div></div>
-      <div id="selected-work" class="selection-panel" ${selected ? '' : 'hidden'}>${selectedMarkup(t)}</div>
       ${portal ? `${portal.groups.map(group => {
         const works = portal.works.filter(work => work.group === group.id);
         if (!works.length) return '';
-        return `<section class="work-group" aria-labelledby="group-${e(group.id)}"><div class="group-heading"><h3 id="group-${e(group.id)}">${e(group.label[state.lang])}</h3><span>${t.countLabel}</span></div><div class="work-grid">${works.map(work => `<button type="button" class="work-card" data-work="${e(work.id)}" aria-pressed="${work.id === state.work}" aria-label="${e(label(work))}, ${work.theme_count} ${t.themes}"><span class="work-copy"><span class="work-label">${e(label(work))}</span><span class="work-examples">${state.lang === 'zh' ? '例如：' : 'e.g. '}${e(work.examples.map(example => example[state.lang]).join(state.lang === 'zh' ? '、' : ' · '))}</span></span><span class="work-count">${work.theme_count}<span class="work-arrow" aria-hidden="true">${work.id === state.work ? '✓' : '+'}</span></span></button>`).join('')}</div></section>`;
+        return `<section class="work-group" aria-labelledby="group-${e(group.id)}"><div class="group-heading"><h3 id="group-${e(group.id)}">${e(group.label[state.lang])}</h3><span>${t.countLabel}</span></div><div class="work-grid">${works.map(work => `<a class="work-card" data-work="${e(work.id)}" data-route="forward" href="${e(href({ view: 'results', source: 'work', work: work.id }))}" aria-label="${e(label(work))}, ${work.theme_count} ${t.themes}"><span class="work-copy"><span class="work-label">${e(label(work))}</span><span class="work-examples">${state.lang === 'zh' ? '例如：' : 'e.g. '}${e(work.examples.map(example => example[state.lang]).join(state.lang === 'zh' ? '、' : ' · '))}</span></span><span class="work-count">${work.theme_count}<span class="work-arrow" aria-hidden="true">→</span></span></a>`).join('')}</div></section>`;
       }).join('')}<p class="section-footnote">${t.visible}</p><p class="reference-note">${state.lang === 'zh' ? '分類沿用 ' : 'Categories follow '}${external('https://vcstseng.github.io/99-problems/pages/problem-map/index.html', '99 Problems ↗')}<span>${state.lang === 'zh' ? '；候選可支援的步驟與適用性仍需確認。' : '; supported steps and suitability still need assessment.'}</span></p>` : loadState('portal')}
     </section>
     <section class="trending-section" aria-labelledby="trending-heading">
@@ -154,17 +139,6 @@ app.addEventListener('click', event => {
     event.preventDefault();
     const next = readRoute(new URL(target.href).search, portal?.works.map(w => w.id) || [], state.lang);
     go(next, target.dataset.route === 'return');
-  } else if (target.hasAttribute('data-work')) {
-    updateState({ work: state.work === target.dataset.work ? null : target.dataset.work });
-    renderWorkSelection();
-    announce(state.work ? copy[state.lang].selection(label(portal.works.find(w => w.id === state.work))) : copy[state.lang].clearStatus);
-    const panel = document.querySelector('#selected-work');
-    if (!panel.hidden && panel.getBoundingClientRect().top < 0) panel.scrollIntoView({ block: 'start' });
-  } else if (target.hasAttribute('data-clear')) {
-    const previous = state.work;
-    updateState({ work: null }); renderWorkSelection();
-    document.querySelector(`[data-work="${previous}"]`)?.focus({ preventScroll: true });
-    announce(copy[state.lang].clearStatus);
   } else if (target.hasAttribute('data-retry')) load(target.dataset.retry);
   else if (target.hasAttribute('data-home') && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
     event.preventDefault(); go({ view: 'portal', source: 'work', work: null });
@@ -173,7 +147,7 @@ app.addEventListener('click', event => {
 window.addEventListener('popstate', () => {
   savePosition(false);
   state = readRoute(location.search, portal?.works.map(w => w.id) || [], state.lang);
-  pendingPosition = { top: Number(history.state?.scrollY ?? positions[positionKey(state)] ?? 0), focus: false, hash: location.hash };
+  pendingPosition = { top: Number(history.state?.scrollY ?? positions[positionKey(state)] ?? 0), focus: false, hash: location.hash, focusWork: history.state?.focusWork };
   render(); ensureData();
 });
 window.addEventListener('pagehide', () => savePosition());

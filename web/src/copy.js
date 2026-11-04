@@ -3,7 +3,7 @@ export const copy = {
     title: '能力便利商店', tagline: '為工作找能力', skip: '跳到工作探索',
     heading: '你想改善什麼工作？', intro: '探索可支援這項工作的工具、Skills 與 Agent 範例，作為研究與試作的起點。',
     themes: '個可探索能力主題', resources: '個相關候選資源', explore: '從工作找能力',
-    exploreHint: '先選一個領域，看看有哪些能力可支援其中的工作。', countLabel: '能力主題數',
+    exploreHint: '點選領域，直接瀏覽相關能力與候選。', countLabel: '能力主題數',
     visible: '僅列有相關候選的分類；同一能力可支援不同工作，分類筆數不相加。', selected: '已選領域', clear: '清除選擇',
     next: '此版先完成工作選擇；能力列表將於下一階段開放。',
     groupCount: (n, r) => `已整理 ${n} 個能力主題、${r} 個候選資源。`,
@@ -21,7 +21,7 @@ export const copy = {
     title: 'Capability Store', tagline: 'Capabilities for your work', skip: 'Skip to work exploration',
     heading: 'What work would you like to improve?', intro: 'Explore tools, skills and agent examples that can support the work — a starting point for research and prototyping.',
     themes: 'explorable capability themes', resources: 'related resource candidates', explore: 'Find capabilities by work',
-    exploreHint: 'Choose an area to explore capabilities that support steps within the work.', countLabel: 'Capability themes',
+    exploreHint: 'Choose an area to browse its capabilities and candidates.', countLabel: 'Capability themes',
     visible: 'Only categories with related candidates are shown. Capabilities can serve several areas; category counts do not add up.', selected: 'Selected area', clear: 'Clear selection',
     next: 'Work selection is ready in this version. Capability lists are coming next.',
     groupCount: (n, r) => `${n} capability themes and ${r} resource candidates curated.`,
@@ -38,7 +38,7 @@ export const copy = {
 };
 Object.assign(copy.zh, {
  viewCapabilities:'查看能力 →', viewTrending:n=>`查看 ${n} 個專案 →`,
- backToWork:'← 返回工作選擇', journey:'探索路徑', resultStep:'02 能力與候選',
+ backToWork:'← 返回分類入口', journey:'探索路徑', resultStep:'02 能力與候選',
  resultsIntro:'依能力主題瀏覽相關候選，找到值得進一步研究的工具與做法。',
  invalidWork:'找不到這個分類', invalidWorkHint:'這個連結沒有可用的工作分類，請返回入口重新選擇。',
  repoCount:n=>`本次快照共 ${n} 個專案。`, directoryStatus:'依清單整理 · 尚未實測',
@@ -48,7 +48,7 @@ Object.assign(copy.zh, {
 });
 Object.assign(copy.en, {
  viewCapabilities:'Explore capabilities →', viewTrending:n=>`View ${n} projects →`,
- backToWork:'← Back to work selection', journey:'Exploration path', resultStep:'02 Capabilities & candidates',
+ backToWork:'← Back to categories', journey:'Exploration path', resultStep:'02 Capabilities & candidates',
  resultsIntro:'Browse candidates by capability to find tools and approaches worth investigating.',
  invalidWork:'Category not found', invalidWorkHint:'This link has no available work category. Return to the portal to choose one.',
  repoCount:n=>`${n} projects in this snapshot.`, directoryStatus:'Directory review · Not tested',

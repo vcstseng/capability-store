@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-04",
+  "scope": "Direct category entry and UX review",
+  "node_tests_passed": 10,
+  "category_links": 14,
+  "selection_panel_removed": true,
+  "direct_navigation": true,
+  "keyboard_enter_verified": true,
+  "portal_scroll_restored_px": 527,
+  "return_focus_verified": true,
+  "browser_back_verified": true,
+  "mobile_css_width": 375,
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "horizontal_overflow": false,
+  "minimum_category_height_px": 90,
+  "console_errors": 0,
+  "layer_3_implemented": false
+}

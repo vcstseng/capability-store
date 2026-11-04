@@ -20,6 +20,7 @@ export function exploreSearch(state) {
 }
 
 export function positionKey(state) {
+  if (state.view === 'portal') return JSON.stringify(['portal', state.problem]);
   return JSON.stringify([state.view, state.source, state.work, !!state.expanded, state.problem]);
 }
 
