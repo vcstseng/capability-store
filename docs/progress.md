@@ -1,5 +1,21 @@
 # 專案進度
 
+## 2026-11-04：建立公開 GitHub repo，資料備份完成
+
+- Repository：[vcstseng/capability-store](https://github.com/vcstseng/capability-store)，公開，預設分支 main。
+- 首次資料上傳 commit：`f5d17d2`。包含 32 個能力主題、84 個資源候選、15 筆獨立 Trending 週榜快照、中英文資料、來源快照與處理腳本。
+- 已驗證：84 筆來源對應、92 個來源依據、14 份來源快照檔案 hash、分類參照與數量一致。Trending 原始頁面 hash、順序、15 個不重複 repo 已核對。
+- 來源聲明見 `THIRD_PARTY_NOTICES.md`；未將來源清單授權套用到每個候選。已排除 HTTP session-cookie headers。
+- 網站尚未建置或部署；GitHub repo 連結是程式與資料入口，尚無 Capability Store 網站網址。
+
+使用者決定：能力的深入 review 與替換之後再做，目前用這份資料推進 prototype。
+
+**下一步只做 Layer 1**：維持極簡、中英文，規劃工作探索入口與獨立 Trending 區；以現有 JSON 為基礎，保留日後替換資源的能力。Layer 2／3 後續再做，不先增加 matching、共用資料層或安裝流程。
+
+---
+
+
+
 ## 2026-11-04：首版能力資料整理完成，待 review
 
 - 五份 GitHub 清單已保存 README、metadata、可取得授權、固定 commit 與 SHA-256。

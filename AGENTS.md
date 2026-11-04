@@ -2,6 +2,8 @@
 
 ## 最新決定（2026-11-04）
 
+使用者已授權並完成公開 repo vcstseng/capability-store 的建立與首版資料上傳，預設分支 main。下一步先做極簡、中英文 Layer 1；能力深化 review 與替換之後再做。這次 GitHub 備份輪不做網站，不連帶實作 Layer 2／3。前述最新決定取代下方較早的「待資料 review 才能開始」限制。
+
 本輪先整理資料，不做網站。完整來源清單保留為候選池，首版按「工作 → 具體能力 → 2–4 個資源候選」整理；不追求湊到 150–200 筆，也不做類型配額。使用者最新指示優先。
 
 企業共通工作為主，少量產業例子補充。Startup Radar 的 22 個工作方向只作探索參考，不代表 99 Problems 已覆蓋。repo 是資源容器；Skill／Tool／Agent 可重疊，集合與單項能力要區分。只拆分有獨立來源依據的子項目，不把功能清單變成虛構資源。
@@ -9,7 +11,7 @@
 ## 每輪流程
 
 1. 先讀本檔、docs/progress.md、data/processed/resources/progress.json。
-2. 按使用者指定範圍工作；目前網站 L1–L3 待資料 review，不先實作。
+2. 按使用者指定範圍工作；下一輪只做 Layer 1；Layer 2／3 待使用者後續指示。
 3. raw 保持原樣，在 processed 整理。更新資料後執行 scripts/validate/validate_catalog.py。
 4. 文件記錄數量、來源依據、缺口、限制與下一步；候選、已整理、已測試分開計數。
 
