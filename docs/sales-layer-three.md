@@ -23,3 +23,5 @@ L2 用途是比較與選擇；L3 說明單一能力的情境、輸入→處理�
 本機：http://127.0.0.1:4175/?lang=zh&work=business-sales&view=resource&id=idea-sales-risk
 
 正式站發布狀態另記於 docs/progress.md；不能將已推送程式等同正式站已更新。
+
+發布紀錄：GitHub 測試／建置通過，Pages Deploy 步驟仍執行中；正式 L3 尚未確認，本機預覽可用。功能 commit e3388db；發布 run 41873725913。先前 L2 的 run 41864483858 已成功。
