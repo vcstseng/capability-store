@@ -14,5 +14,10 @@
   "console_errors": 0,
   "source_annotations": 7,
   "original_catalog_preserved": true,
-  "third_party_execution": false
+  "third_party_execution": false,
+  "deployment": "success",
+  "deployment_run_id": 41857541549,
+  "public_page_verified": true,
+  "public_overview_count": 5,
+  "public_external_candidate_links": 0
 }

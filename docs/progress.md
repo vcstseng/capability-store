@@ -14,7 +14,7 @@
 
 驗證：12 項 Node 檢查、建置與原始快照完整性通過。財務 L2 確認 5 主題／11 候選、候選區外連 0；xlsx 詳情切英文再返回，回到原候選與約 1682px 閱讀位置。375px 中英文列表與詳情無橫向溢出。獨立分享網址及熱門 repo 站內頁已核對，未見 console error。
 
-發布結果接續記錄。下一步先 review L2 的比較資訊與站內閱讀流程；進一步資料深化及完整 L3 規格另議。
+已發布：https://vcstseng.github.io/capability-store/?lang=zh&work=business-finance&view=results 。網站版本 `f4493ac`，GitHub Pages 執行 41857541549 成功。正式頁確認 5 個能力導覽、5 個分組、11 個候選及候選區 0 個外連；可進入站內資源頁再返回。截圖見 docs/screenshots/l2-comparison-finance.jpg。下一步先 review L2 的比較資訊與站內閱讀流程；進一步資料深化及完整 L3 規格另議。
 
 ---
 
