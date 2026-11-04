@@ -26,5 +26,10 @@
   "original_catalog_preserved": true,
   "layer_3_implemented": false,
   "installation_or_execution": false,
-  "future_context": "problem ID preserved only; no verified cross-module relation"
+  "future_context": "problem ID preserved only; no verified cross-module relation",
+  "deployment": "success",
+  "deployment_run_id": 41842620278,
+  "public_work_page_verified": true,
+  "console_errors": 0,
+  "public_url": "https://vcstseng.github.io/capability-store/?lang=zh&work=business-procurement&view=results"
 }
