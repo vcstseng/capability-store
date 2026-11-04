@@ -9,7 +9,14 @@ const data = path.resolve(web, '../data/processed/catalog');
 const catalog = JSON.parse(await readFile(path.join(data, 'catalog.json'), 'utf8'));
 const navigation = JSON.parse(await readFile(path.resolve(web, '../config/taxonomy/portal-navigation.json'), 'utf8'));
 const concepts = JSON.parse(await readFile(path.resolve(web, '../data/processed/concepts/business-concepts.json'), 'utf8'));
-concepts.details = JSON.parse(await readFile(path.resolve(web, '../data/processed/concepts/sales-details.json'), 'utf8')).details;
+concepts.details = {};
+for (const file of ['sales-details.json','business-details.json']) {
+  const {details} = JSON.parse(await readFile(path.resolve(web, '../data/processed/concepts', file), 'utf8'));
+  for (const [id, detail] of Object.entries(details)) {
+    if (Object.hasOwn(concepts.details, id)) throw new Error('Duplicate detail identity: '+id);
+    concepts.details[id] = detail;
+  }
+}
 validateConceptDetails(concepts);
 const display = JSON.parse(await readFile(path.resolve(web, '../config/resource-display.json'), 'utf8'));
 for (const [id, note] of Object.entries(display)) {

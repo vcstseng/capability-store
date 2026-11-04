@@ -8,7 +8,7 @@
 
 目前 L2 有 **60 個構想、30 個工作環節、10 個企業領域**。用途、預期輸入／產出與人工決策點均有中英文。這些是尚未實作的設計假說，不是現成工具或已驗證方案。
 
-每領域另有 2 個既有 GitHub 候選作實現線索，標示待評估；不假設單一 repo 能實現整個構想。之後可沿用、調整、組合或自建。原有資源資料、AI 參考入口與基本資源頁保留，本輪不擴充 L3。
+每領域另有 2 個既有 GitHub 候選作實現線索，標示待評估；不假設單一 repo 能實現整個構想。之後可沿用、調整、組合或自建。原有資源資料、AI 參考入口與基本資源頁保留。十個領域的 60 個中英文 L3 已完成，沿用 Sales 模板。
 
 ## 本機預覽
 
@@ -26,6 +26,6 @@ npm run dev
 構想資料：data/processed/concepts/business-concepts.json。原來源資料：data/processed/catalog/catalog.json；raw 快照保留不改。第三方說明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 
-## 銷售能力 L3
+## 十領域能力 L3 · Prototype v1
 
-銷售 6 個能力提供共用模板讀 JSON 的中英文能力說明，含虛構示例、能力界線與搭配能力。構想尚未實作，示例非執行結果。[規格與驗證](docs/sales-layer-three.md)。
+60 個能力提供共用模板讀 JSON 的中英文能力說明，含虛構示例、能力界線與搭配能力。構想尚未實作，示例非執行結果。完成後凍結，不自動擴充。[凍結範圍與驗證](docs/prototype-freeze-v1.md) · [目錄說明](docs/file-directory.md)。

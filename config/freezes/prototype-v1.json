@@ -1,0 +1,39 @@
+{
+  "version": "prototype-v1",
+  "frozen_at": "2026-11-05",
+  "status": "content_frozen",
+  "tag": "capability-store-prototype-v1",
+  "domains": 10,
+  "concepts": 60,
+  "details": 60,
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "executed_capabilities": 0,
+  "node_tests_passed": 20,
+  "browser_pages_checked": 120,
+  "sales_content_preserved_from_commit": "e3388db",
+  "files": {
+    "data/processed/concepts/business-concepts.json": "cec476342857f309885395ceeea1cf36eedf03563a0242c5a615455dfc790c14",
+    "data/processed/concepts/sales-details.json": "a9127f59c4d69511d24e4edbd8a71f03cb29c4445e67526e84460021cd26d9e3",
+    "data/processed/concepts/business-details.json": "472209539072005484aea846cd1bcfa300c8c9a2d99202555f8dc885600ce81f",
+    "data/processed/catalog/catalog.json": "a4ec4631f98101a787e9508946dc6fd9c3361b15c80e595f7b4eb28c6fe69fd5",
+    "data/processed/catalog/trending.json": "f6c7683b4a5b861868988ea0c03e0ec0376fa0279342c6183c72073349b17567",
+    "config/taxonomy/portal-navigation.json": "2b6154d2bfe47f65fb40af52d8e087ce899d849b3a6d61f808e4a0702cd2645a",
+    "config/resource-display.json": "e2e24cb2e8342d7e31aca3c7b318f28aae8380ca4c09c35acc9db7c892f22c3b",
+    ".github/workflows/deploy.yml": "06d50d550eed69efe197305dd4db598e30ed2c1da7c9c356f236d653f7836757",
+    "web/index.html": "758f7601d273416ce141718fefcccd1d3e1422cebc0288ad3f92f1586820c3d0",
+    "web/src/app.js": "570ea1173d2e70baf9f16f8028620892e6c1a92bfc668058319fca3bdcaa8431",
+    "web/src/concepts.js": "1edab312aaf54de3c3ba7a317e824e57421cc4b3535dce0b7b55fba43040576c",
+    "web/src/copy.js": "b4bfbd96205f22110bc397c5951054000057c9bc10b35d27501e17d1ca9bd748",
+    "web/src/portal.js": "36648830062919417c1ed04903b118274b8cbcee4130526993d17b1353a5db0f",
+    "web/src/results.js": "a16e5632795fc47427985d3025e0e31f41713bc62e9dc3a2d2e7f4f23917897b",
+    "web/src/styles.css": "ff57f618be68957a50031271078291d2667661305c326ad9cddf150ec343a63d",
+    "web/scripts/build.mjs": "785c9d796fd596a82c2fd315bbe09a8d6831ff5fa885fc6166afe33fbaf9bf86",
+    "web/tests/concept-details.test.mjs": "aea9b4d1b3292525f582449f2b38ea73c1b87ee54e40cea4102ff88c41a43989",
+    "web/tests/concepts.test.mjs": "8b79187e3b36f0b21b9700963e05bdd44569e4f4e4912e66adcca08e63dca43a",
+    "web/tests/portal.test.mjs": "9847831cc6f566c9159ba8fb370113cd57ad81d6d45f4b35015e0f318d0ddfa8",
+    "web/tests/results.test.mjs": "38ca718ae603fd51561bcb64e8740522668cffe9a8249c167babc311c6afb393"
+  }
+}

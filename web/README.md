@@ -1,27 +1,16 @@
-# Layers 1–2
+# Capability Store — L1–L3 prototype
 
-暖白／深綠、文字優先的中英文工作入口與獨立 Trending 區。Layer 2 已加入工作能力與 Trending 列表；這輪不實作 Layer 3。
+中英文、暖白與深綠的靜態網站；共用模板依 URL 讀 JSON。企業入口使用十個對齊 99 Problems 的領域，L2 有 60 個構想、L3 有 60 個能力說明。能力未實作，例子為虛構編寫。原 AI 資源頁與 Trending 快照保留。
 
-Node 22+：`npm test`、`npm run build`。Python 3：`npm run dev`，開啟 http://127.0.0.1:4174/。
+Node 22+：npm test、npm run build。Python 3：npm run dev（預設 http://127.0.0.1:4174/）。本輪既有本機預覽服務在 4175。
 
-- index.html：共用頁面入口。
-- src/app.js、styles.css：介面、語言與選取互動。
-- src/portal.js：資料計數與網址狀態。
-- scripts/build.mjs：從既有 catalog／trending JSON 產生精簡網站資料，不上線 raw／完整候選池。
-- tests/portal.test.mjs：計數及網址行為檢查。
+- L1：?lang=zh
+- L2：?lang=zh&work=business-finance&view=results
+- L3：?lang=zh&work=business-finance&view=resource&id=idea-finance-invoice
+- 原資源詳情：view=resource&id=cap-...；Trending：view=results&source=trending。
 
-URL：`?lang=en&work=finance-accounting&trending=all`。穩定工作 ID 可供之後接上動態 Layer 2；目前選取摘要明確說明列表尚未開放。
+語言切換保留能力與情境；返回列表保留位置與焦點。problem 僅為保留情境識別字，不代表已 matching。所有頁面仍是概念／參考，沒有能力安裝或執行。
 
-2026-11-04 首頁改為 99 Problems 分類導覽，設定見 `config/taxonomy/portal-navigation.json`。每類例子由實際能力名稱產生；全站計數去重，未對應主題保留。舊財務等明確網址可相容，模糊合併分類不猜選。
+build.mjs 從 catalog、導覽設定、構想資料及兩份 L3 增補產生 dist/data。Sales 原六筆在 sales-details.json，其餘 54 筆在 business-details.json。建置時拒絕缺少詳情、重複 ID、缺翻譯、失效參照；不發布 raw 或完整候選池。
 
-L2 工作入口：`?lang=en&work=business-procurement&view=results`；熱門入口：`?lang=en&view=results&source=trending`。
-
-`src/results.js` 處理精簡結果資料、分組及 L2 route；`src/copy.js` 保存雙語 UI 文字。`data/results.json` 由建置產生並在工作 L2 才載入。既有 portal／trending 資料不改寫。分享網址可帶保留的 `problem=P02` 識別字，但不展示未經證實的匹配關係。
-
-能力與資源錨點可直接定位；來源連結開新分頁。返回入口保留語言、原位置與分類焦點；沒有 L3 詳情頁。
-
-2026-11-04 UX 簡化：分類是直接導覽連結，不需先選取或確認；返回首頁保留閱讀位置與焦點。
-
-最新 L2：能力總覽、主題工作說明與緊湊候選列；查看詳情進 `view=resource&id=cap-...` 或 `id=github:owner/repo`。保留 work、source、lang、problem 情境；返回恢復候選位置與焦點。無列表情境的資源網址回分類入口。外部資源連結只在基本詳情頁提供。
-
-最新企業 L2 改為構想式 prototype：src/concepts.js 與 concepts.json 以既有 work ID 連接。L1 同步構想計數，AI 原有資源不變。構想在 L2 閱讀用途、預期輸入／產出與人工決策點，沒有執行或新 L3 按鈕；GitHub 參考另列。
+凍結說明與雜湊見 docs/prototype-freeze-v1.md、config/freezes/prototype-v1.json。未經新指示不擴充。

@@ -29,6 +29,7 @@ export function conceptPage(data, workId) {
 
 export function validateConceptDetails(data) {
   const ids=new Set(data.concepts.map(c=>c.id));
+  if (Object.keys(data.details || {}).length !== ids.size || [...ids].some(id=>!data.details?.[id])) throw new Error('Every concept must have exactly one detail.');
   const bilingual=x=>x && ['zh','en'].every(lang=>typeof x[lang]==='string' && x[lang].trim());
   const refs=new Set(data.domains.flatMap(d=>d.references.map(r=>r.resource_id+'|'+r.url)));
   for (const [id,d] of Object.entries(data.details || {})) {

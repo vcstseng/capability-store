@@ -1,0 +1,889 @@
+{
+  "l2": [
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=results",
+      "details": 6
+    },
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-marketing&view=results",
+      "details": 6
+    },
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-finance&view=results",
+      "details": 6
+    },
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-hr&view=results",
+      "details": 6
+    },
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-procurement&view=results",
+      "details": 6
+    },
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-operations&view=results",
+      "details": 6
+    },
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-customer-service&view=results",
+      "details": 6
+    },
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-supply-chain&view=results",
+      "details": 6
+    },
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-legal&view=results",
+      "details": 6
+    },
+    {
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-management&view=results",
+      "details": 6
+    }
+  ],
+  "chinese_desktop": [
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "客戶適配判讀",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=resource&id=idea-sales-fit"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "潛在客戶優先排序",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=resource&id=idea-sales-priority"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "訪談重點與承諾整理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=resource&id=idea-sales-discovery"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "報價毛利與折扣試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=resource&id=idea-sales-margin"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "商機停滯調查員",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=resource&id=idea-sales-risk"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "每週商機檢討流程",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=resource&id=idea-sales-review"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "受眾需求與訊息拆解",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-marketing&view=resource&id=idea-marketing-audience"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "創意素材簡報產生",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-marketing&view=resource&id=idea-marketing-brief"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "通路預算情境試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-marketing&view=resource&id=idea-marketing-budget"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "活動異常觀察員",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-marketing&view=resource&id=idea-marketing-watch"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "會員互動情境整理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-marketing&view=resource&id=idea-marketing-retention"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "活動上線到檢討",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-marketing&view=resource&id=idea-marketing-review"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "成本差異拆解",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-finance&view=resource&id=idea-finance-cost"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "現金缺口情境試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-finance&view=resource&id=idea-finance-cash"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "預算假設變動整理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-finance&view=resource&id=idea-finance-assumptions"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "獲利流失橋接試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-finance&view=resource&id=idea-finance-profit"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "財務異常查證助理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-finance&view=resource&id=idea-finance-investigate"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "發票核對到付款核准",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-finance&view=resource&id=idea-finance-invoice"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "職務與履歷證據對照",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-hr&view=resource&id=idea-hr-profile"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "技能缺口訪談準備",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-hr&view=resource&id=idea-hr-skills"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "人力與工時需求試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-hr&view=resource&id=idea-hr-capacity"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "學習路徑規劃助理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-hr&view=resource&id=idea-hr-learning"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "新人到職與交接",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-hr&view=resource&id=idea-hr-onboarding"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "人事案件規範定位",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-hr&view=resource&id=idea-hr-policy"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "報價條件抽取與標準化",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-procurement&view=resource&id=idea-procurement-extract"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "商務條件差異整理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-procurement&view=resource&id=idea-procurement-terms"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "總採購成本試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-procurement&view=resource&id=idea-procurement-cost"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "供應商分單情境比較",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-procurement&view=resource&id=idea-procurement-allocation"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "供應商風險調查助理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-procurement&view=resource&id=idea-procurement-risk"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "詢價到採購核准",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-procurement&view=resource&id=idea-procurement-rfq"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "流程例外分類",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-operations&view=resource&id=idea-operations-exceptions"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "短期工作負荷試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-operations&view=resource&id=idea-operations-load"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "插單與延誤排程比較",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-operations&view=resource&id=idea-operations-schedule"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "營運異常整理員",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-operations&view=resource&id=idea-operations-triage"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "例外案件處理閉環",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-operations&view=resource&id=idea-operations-resolution"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "跨班交接整理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-operations&view=resource&id=idea-operations-handover"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "客戶案件結構化",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-customer-service&view=resource&id=idea-service-understand"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "案件分流規則試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-customer-service&view=resource&id=idea-service-priority"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "服務權益核對",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-customer-service&view=resource&id=idea-service-entitlement"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "具依據的解答草擬助理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-customer-service&view=resource&id=idea-service-answer"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "客服互動品質回顧",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-customer-service&view=resource&id=idea-service-quality"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "客訴升級與追蹤",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-customer-service&view=resource&id=idea-service-escalation"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "需求預測偏誤整理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-supply-chain&view=resource&id=idea-supply-bias"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "補貨與調撥情境試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-supply-chain&view=resource&id=idea-supply-inventory"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "品質批次關聯整理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-supply-chain&view=resource&id=idea-supply-trace"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "出貨延誤追蹤助理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-supply-chain&view=resource&id=idea-supply-delay"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "產品版本交接核對",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-supply-chain&view=resource&id=idea-supply-version"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "長交期材料備料試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-supply-chain&view=resource&id=idea-supply-materials"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "合約條款偏離整理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-legal&view=resource&id=idea-legal-diff"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "合約義務與期限抽取",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-legal&view=resource&id=idea-legal-obligations"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "合約期限與提醒試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-legal&view=resource&id=idea-legal-calendar"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "法規變動影響整理助理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-legal&view=resource&id=idea-legal-change"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "內控證據收集與覆核",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-legal&view=resource&id=idea-legal-audit"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "法務議題交接摘要",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-legal&view=resource&id=idea-legal-negotiation"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "策略假設檢視",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-management&view=resource&id=idea-management-assumptions"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "專案組合資源試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-management&view=resource&id=idea-management-portfolio"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "策略執行脈絡整理員",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-management&view=resource&id=idea-management-execution"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "決策選項與反證整理",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-management&view=resource&id=idea-management-options"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "決策權重敏感度試算",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-management&view=resource&id=idea-management-tradeoff"
+    },
+    {
+      "illustrative": true,
+      "overflow": false,
+      "sections": 6,
+      "title": "決策到成果回顧",
+      "url": "http://127.0.0.1:4175/?lang=zh&work=business-management&view=resource&id=idea-management-learning"
+    }
+  ],
+  "english_mobile": [
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Customer fit assessment",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-sales&view=resource&id=idea-sales-fit"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Prospect priority calculator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-sales&view=resource&id=idea-sales-priority"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Discovery notes and commitments",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-sales&view=resource&id=idea-sales-discovery"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Quote margin and discount simulator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-sales&view=resource&id=idea-sales-margin"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Deal stall investigator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-sales&view=resource&id=idea-sales-risk"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Weekly pipeline review",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-sales&view=resource&id=idea-sales-review"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Audience needs and messaging",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-marketing&view=resource&id=idea-marketing-audience"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Creative brief drafting",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-marketing&view=resource&id=idea-marketing-brief"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Channel budget scenario planner",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-marketing&view=resource&id=idea-marketing-budget"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Campaign anomaly watcher",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-marketing&view=resource&id=idea-marketing-watch"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Member engagement scenarios",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-marketing&view=resource&id=idea-marketing-retention"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Campaign launch-to-review",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-marketing&view=resource&id=idea-marketing-review"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Cost variance breakdown",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-finance&view=resource&id=idea-finance-cost"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Cash gap scenario simulator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-finance&view=resource&id=idea-finance-cash"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Budget assumption review",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-finance&view=resource&id=idea-finance-assumptions"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Profit leakage bridge",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-finance&view=resource&id=idea-finance-profit"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Financial anomaly investigator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-finance&view=resource&id=idea-finance-investigate"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Invoice-to-approval workflow",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-finance&view=resource&id=idea-finance-invoice"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Role-to-resume evidence mapping",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-hr&view=resource&id=idea-hr-profile"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Skills gap interview preparation",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-hr&view=resource&id=idea-hr-skills"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Workforce capacity calculator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-hr&view=resource&id=idea-hr-capacity"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Learning path planning assistant",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-hr&view=resource&id=idea-hr-learning"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Onboarding and handover workflow",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-hr&view=resource&id=idea-hr-onboarding"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "HR case policy lookup",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-hr&view=resource&id=idea-hr-policy"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Quote extraction and normalization",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-procurement&view=resource&id=idea-procurement-extract"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Commercial terms comparison",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-procurement&view=resource&id=idea-procurement-terms"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Total procurement cost simulator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-procurement&view=resource&id=idea-procurement-cost"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Supplier allocation scenarios",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-procurement&view=resource&id=idea-procurement-allocation"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Supplier risk investigation assistant",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-procurement&view=resource&id=idea-procurement-risk"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "RFQ-to-approval workflow",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-procurement&view=resource&id=idea-procurement-rfq"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Process exception classification",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-operations&view=resource&id=idea-operations-exceptions"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Short-term workload simulator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-operations&view=resource&id=idea-operations-load"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Disruption scheduling scenarios",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-operations&view=resource&id=idea-operations-schedule"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Operational incident triage assistant",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-operations&view=resource&id=idea-operations-triage"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Exception resolution workflow",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-operations&view=resource&id=idea-operations-resolution"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Shift handover summary",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-operations&view=resource&id=idea-operations-handover"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Customer case structuring",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-customer-service&view=resource&id=idea-service-understand"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Ticket routing rule simulator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-customer-service&view=resource&id=idea-service-priority"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Service entitlement checker",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-customer-service&view=resource&id=idea-service-entitlement"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Evidence-based answer drafting assistant",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-customer-service&view=resource&id=idea-service-answer"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Support interaction quality review",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-customer-service&view=resource&id=idea-service-quality"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Complaint escalation workflow",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-customer-service&view=resource&id=idea-service-escalation"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Demand forecast bias review",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-supply-chain&view=resource&id=idea-supply-bias"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Replenishment and transfer simulator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-supply-chain&view=resource&id=idea-supply-inventory"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Quality lot relationship mapping",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-supply-chain&view=resource&id=idea-supply-trace"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Shipment delay monitoring assistant",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-supply-chain&view=resource&id=idea-supply-delay"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Product revision handover workflow",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-supply-chain&view=resource&id=idea-supply-version"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Long-lead material scenario planner",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-supply-chain&view=resource&id=idea-supply-materials"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Contract deviation review",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-legal&view=resource&id=idea-legal-diff"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Contract obligation extraction",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-legal&view=resource&id=idea-legal-obligations"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Contract deadline calculator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-legal&view=resource&id=idea-legal-calendar"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Regulatory change impact assistant",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-legal&view=resource&id=idea-legal-change"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Control evidence review workflow",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-legal&view=resource&id=idea-legal-audit"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Legal issue handover brief",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-legal&view=resource&id=idea-legal-negotiation"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Strategic assumption review",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-management&view=resource&id=idea-management-assumptions"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Project portfolio resource simulator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-management&view=resource&id=idea-management-portfolio"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Strategy execution context assistant",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-management&view=resource&id=idea-management-execution"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Decision options and counterevidence",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-management&view=resource&id=idea-management-options"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Decision weight sensitivity calculator",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-management&view=resource&id=idea-management-tradeoff"
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "sections": 6,
+      "title": "Decision-to-outcome review",
+      "url": "http://127.0.0.1:4175/?lang=en&work=business-management&view=resource&id=idea-management-learning"
+    }
+  ],
+  "console_errors": []
+}
