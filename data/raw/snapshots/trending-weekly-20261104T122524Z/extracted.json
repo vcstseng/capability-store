@@ -1,0 +1,151 @@
+{
+  "source_url": "https://github.com/trending?since=weekly",
+  "observed_at": "2026-11-04T12:25:24.002345+00:00",
+  "http_status": 200,
+  "http_headers": {
+    "Date": "Wed, 04 Nov 2026 12:25:22 GMT",
+    "Content-Type": "text/html; charset=utf-8",
+    "Vary": "X-PJAX, X-PJAX-Container, Turbo-Visit, Turbo-Frame, X-Requested-With, X-GitHub-Client-Version, Sec-Fetch-Site,Accept-Encoding, Accept, X-Requested-With",
+    "ETag": "W/\"ecece0dc47120c7be491b8079554145a\"",
+    "Cache-Control": "max-age=0, private, must-revalidate",
+    "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+    "X-Frame-Options": "deny",
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "0",
+    "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+    "Content-Security-Policy": "default-src 'none'; base-uri 'self'; child-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com github.githubassets.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net productionresultssa1.blob.core.windows.net productionresultssa2.blob.core.windows.net productionresultssa3.blob.core.windows.net productionresultssa4.blob.core.windows.net productionresultssa5.blob.core.windows.net productionresultssa6.blob.core.windows.net productionresultssa7.blob.core.windows.net productionresultssa8.blob.core.windows.net productionresultssa9.blob.core.windows.net productionresultssa10.blob.core.windows.net productionresultssa11.blob.core.windows.net productionresultssa12.blob.core.windows.net productionresultssa13.blob.core.windows.net productionresultssa14.blob.core.windows.net productionresultssa15.blob.core.windows.net productionresultssa16.blob.core.windows.net productionresultssa17.blob.core.windows.net productionresultssa18.blob.core.windows.net productionresultssa19.blob.core.windows.net productionresultssa30.blob.core.windows.net productionresultssa31.blob.core.windows.net productionresultssa32.blob.core.windows.net github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com wss://alive-staging.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com wss://production-copilot-host.webpubsub.azure.com wss://production-copilot-host-centralus.webpubsub.azure.com wss://production-copilot-host-centralus-02.webpubsub.azure.com wss://production-copilot-host-westus.webpubsub.azure.com api.github.com/cmc_internal/api/; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com release-assets.githubusercontent.com secured-user-images.githubusercontent.com user-images.githubusercontent.com private-user-images.githubusercontent.com opengraph.githubassets.com repository-images.githubusercontent.com marketplace-screenshots.githubusercontent.com copilotprodattachments.blob.core.windows.net/github-production-copilot-attachments/ github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com explore-feed.github.com *.googleusercontent.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com secured-user-images.githubusercontent.com private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com github.githubassets.com; script-src github.githubassets.com 'sha256-6AKuI+cDd1MoUL1u4eqrA9PXmnPAkOB4h7421hPUUm0='; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ gist.github.com/assets-cdn/worker/",
+    "Server": "github.com",
+    "Accept-Ranges": "bytes",
+    "X-GitHub-Request-Id": "131C:1FB252:8A7751:CA83F3:6AEB2431",
+    "x-github-edge-region": "japaneast",
+    "connection": "close",
+    "Transfer-Encoding": "chunked"
+  },
+  "raw_file": "data/raw/snapshots/trending-weekly-20261104T122524Z/page.html",
+  "sha256": "101375a6bc8fe75bc43dbd0992f3da9d7ac681dfbf4133a90e053cfde011992a",
+  "period": "weekly",
+  "language_filter": null,
+  "note": "Observed response from GitHub weekly page; not a guaranteed calendar-week range or proof of adoption.",
+  "repositories": [
+    {
+      "rank": 1,
+      "repository": "thedotmack/claude-mem",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "description_en": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
+      "weekly_stars_display": "7,995 stars this week",
+      "raw_text": "Sponsor Star thedotmack / claude-mem Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More TypeScript 112,432 9,773 Built by 7,995 stars this week"
+    },
+    {
+      "rank": 2,
+      "repository": "Nutlope/hallmark",
+      "url": "https://github.com/Nutlope/hallmark",
+      "description_en": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
+      "weekly_stars_display": "8,765 stars this week",
+      "raw_text": "Star Nutlope / hallmark Anti-AI-slop design skill for Claude Code, Cursor, and Codex. CSS 47,445 2,510 Built by 8,765 stars this week"
+    },
+    {
+      "rank": 3,
+      "repository": "pingdotgg/t3code",
+      "url": "https://github.com/pingdotgg/t3code",
+      "description_en": "",
+      "weekly_stars_display": "12,542 stars this week",
+      "raw_text": "Star pingdotgg / t3code TypeScript 45,467 9,348 Built by 12,542 stars this week"
+    },
+    {
+      "rank": 4,
+      "repository": "pbakaus/impeccable",
+      "url": "https://github.com/pbakaus/impeccable",
+      "description_en": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
+      "weekly_stars_display": "11,405 stars this week",
+      "raw_text": "Star pbakaus / impeccable The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships. Rust 102,022 6,012 Built by 11,405 stars this week"
+    },
+    {
+      "rank": 5,
+      "repository": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "description_en": "An agentic skills framework & software development methodology that works.",
+      "weekly_stars_display": "5,994 stars this week",
+      "raw_text": "Sponsor Star obra / superpowers An agentic skills framework & software development methodology that works. Shell 312,154 27,768 Built by 5,994 stars this week"
+    },
+    {
+      "rank": 6,
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills",
+      "description_en": "Public repository for Agent Skills",
+      "weekly_stars_display": "2,969 stars this week",
+      "raw_text": "Star anthropics / skills Public repository for Agent Skills Python 187,268 22,096 Built by 2,969 stars this week"
+    },
+    {
+      "rank": 7,
+      "repository": "max-sixty/worktrunk",
+      "url": "https://github.com/max-sixty/worktrunk",
+      "description_en": "Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows",
+      "weekly_stars_display": "749 stars this week",
+      "raw_text": "Star max-sixty / worktrunk Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows Rust 10,781 397 Built by 749 stars this week"
+    },
+    {
+      "rank": 8,
+      "repository": "jakubkrehel/skills",
+      "url": "https://github.com/jakubkrehel/skills",
+      "description_en": "A collection of agent skills that help you build great interfaces.",
+      "weekly_stars_display": "1,761 stars this week",
+      "raw_text": "Sponsor Star jakubkrehel / skills A collection of agent skills that help you build great interfaces. Markdown 10,709 411 Built by 1,761 stars this week"
+    },
+    {
+      "rank": 9,
+      "repository": "JetBrains/thinkrail",
+      "url": "https://github.com/JetBrains/thinkrail",
+      "description_en": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
+      "weekly_stars_display": "3,898 stars this week",
+      "raw_text": "Star JetBrains / thinkrail Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need TypeScript 7,539 456 Built by 3,898 stars this week"
+    },
+    {
+      "rank": 10,
+      "repository": "ghostty-org/ghostty",
+      "url": "https://github.com/ghostty-org/ghostty",
+      "description_en": "👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.",
+      "weekly_stars_display": "771 stars this week",
+      "raw_text": "Star ghostty-org / ghostty 👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration. Zig 63,498 3,816 Built by 771 stars this week"
+    },
+    {
+      "rank": 11,
+      "repository": "multica-ai/andrej-karpathy-skills",
+      "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "description_en": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
+      "weekly_stars_display": "3,921 stars this week",
+      "raw_text": "Star multica-ai / andrej-karpathy-skills A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls. 229,304 22,843 Built by 3,921 stars this week"
+    },
+    {
+      "rank": 12,
+      "repository": "hyprwm/Hyprland",
+      "url": "https://github.com/hyprwm/Hyprland",
+      "description_en": "Hyprland is an independent, highly customizable, dynamic tiling Wayland compositor that doesn't sacrifice on its looks.",
+      "weekly_stars_display": "1,232 stars this week",
+      "raw_text": "Star hyprwm / Hyprland Hyprland is an independent, highly customizable, dynamic tiling Wayland compositor that doesn't sacrifice on its looks. C++ 40,272 2,166 Built by 1,232 stars this week"
+    },
+    {
+      "rank": 13,
+      "repository": "AgriciDaniel/claude-seo",
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "description_en": "Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsing, WebMCP, llms.txt), backlinks, local SEO, e-commerce, international SEO, Google APIs, and PDF/Excel reporting. 9 optional extensions for live SEO data.",
+      "weekly_stars_display": "3,751 stars this week",
+      "raw_text": "Star AgriciDaniel / claude-seo Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsing, WebMCP, llms.txt), backlinks, local SEO, e-commerce, international SEO, Google APIs, and PDF/Excel reporting. 9 optional extensions for live SEO data. Python 26,507 3,446 Built by 3,751 stars this week"
+    },
+    {
+      "rank": 14,
+      "repository": "calesthio/OpenMontage",
+      "url": "https://github.com/calesthio/OpenMontage",
+      "description_en": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
+      "weekly_stars_display": "3,490 stars this week",
+      "raw_text": "Sponsor Star calesthio / OpenMontage World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio. Python 76,234 10,108 Built by 3,490 stars this week"
+    },
+    {
+      "rank": 15,
+      "repository": "Leonxlnx/taste-skill",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "description_en": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
+      "weekly_stars_display": "5,972 stars this week",
+      "raw_text": "Sponsor Star Leonxlnx / taste-skill Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages JavaScript 109,784 7,382 Built by 5,972 stars this week"
+    }
+  ]
+}

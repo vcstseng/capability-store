@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1-draft",
+  "project": "capability-store",
+  "updated_at": "2026-11-04",
+  "phase": "prototype_curation",
+  "status": "ready_for_user_review",
+  "record_limit": null,
+  "source_count": 5,
+  "latest_snapshot": "data/raw/snapshots/sources-20261104T114042Z",
+  "normalized_record_count": 6459,
+  "reviewed_record_count": 84,
+  "counts_pending_extraction": false,
+  "batches": [
+    {
+      "id": "round-001",
+      "date": "2026-11-04",
+      "resource_count": 84,
+      "capability_count": 32
+    }
+  ],
+  "prototype_limit": null,
+  "latest_additional_snapshot": "data/raw/snapshots/additional-sources-20261104T120521Z",
+  "capability_count": 32,
+  "tested_record_count": 0,
+  "trending_repository_count": 15,
+  "trending_observed_at": "2026-11-04T12:25:24.002345+00:00"
+}

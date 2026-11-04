@@ -1,0 +1,70 @@
+{
+  "schema_version": "0.1-draft",
+  "record_limit": null,
+  "sources": [
+    {
+      "id": "voltagent-skills",
+      "repo": "VoltAgent/awesome-agent-skills",
+      "kind": "skills",
+      "url": "https://github.com/VoltAgent/awesome-agent-skills",
+      "commit": "459d2421bdfe2f8111d291fff161926815939288",
+      "status": "raw_snapshot_saved",
+      "snapshot_path": "data/raw/snapshots/sources-20261104T114042Z/voltagent-skills",
+      "license_spdx": "MIT"
+    },
+    {
+      "id": "punkpeye-mcp",
+      "repo": "punkpeye/awesome-mcp-servers",
+      "kind": "mcp_tools",
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "commit": "29f2d490cc02468e7c9d87b0cf68d40d3041e7ef",
+      "status": "raw_snapshot_saved",
+      "snapshot_path": "data/raw/snapshots/sources-20261104T114042Z/punkpeye-mcp",
+      "license_spdx": "MIT"
+    },
+    {
+      "id": "awesome-llm-apps",
+      "repo": "Shubhamsaboo/awesome-llm-apps",
+      "kind": "application_repos",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "commit": "6c16b23f1bacd0fdf240bb5141ef45e59e82c306",
+      "status": "raw_snapshot_saved",
+      "snapshot_path": "data/raw/snapshots/sources-20261104T114042Z/awesome-llm-apps",
+      "license_spdx": "Apache-2.0"
+    },
+    {
+      "id": "composio-skills",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "kind": "skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "commit": "be2a406907dbc61b73e6827ded415c96139d13a2",
+      "status": "raw_snapshot_saved",
+      "snapshot_path": "data/raw/snapshots/additional-sources-20261104T120521Z/composio-skills",
+      "license_spdx": null,
+      "license_file": null,
+      "observed_at": "2026-11-04T12:05:21.537375+00:00"
+    },
+    {
+      "id": "official-mcp",
+      "repo": "VoltAgent/official-mcp-servers",
+      "kind": "mcp_tools",
+      "url": "https://github.com/VoltAgent/official-mcp-servers",
+      "commit": "9183df990f9b33c675fa09e78cab3debcbb4a541",
+      "status": "raw_snapshot_saved",
+      "snapshot_path": "data/raw/snapshots/additional-sources-20261104T120521Z/official-mcp",
+      "license_spdx": "MIT",
+      "license_file": "LICENSE",
+      "observed_at": "2026-11-04T12:05:21.537375+00:00"
+    }
+  ],
+  "additional_candidates": [
+    {
+      "repo": "github/awesome-copilot",
+      "url": "https://github.com/github/awesome-copilot",
+      "status": "reviewed_not_imported",
+      "reason": "Mostly coding agents, instructions, skills and workflows; evaluate as supplemental source after core lists."
+    }
+  ],
+  "prototype_limit": null,
+  "prototype_selection_policy": "About 30 concrete capability themes, 2–4 candidates each; no filler or type quotas."
+}

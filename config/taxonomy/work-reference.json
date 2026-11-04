@@ -1,0 +1,156 @@
+[
+  {
+    "id": "sales-marketing",
+    "label": {
+      "zh": "獲客、行銷與銷售",
+      "en": "Sales and marketing"
+    }
+  },
+  {
+    "id": "customer-service",
+    "label": {
+      "zh": "客服、接待與客戶互動",
+      "en": "Customer service"
+    }
+  },
+  {
+    "id": "finance-accounting",
+    "label": {
+      "zh": "財務、會計、稅務與收付款",
+      "en": "Finance, accounting and payments"
+    }
+  },
+  {
+    "id": "legal-compliance",
+    "label": {
+      "zh": "法律、合約、合規與稽核",
+      "en": "Legal, contracts and compliance"
+    }
+  },
+  {
+    "id": "risk-security",
+    "label": {
+      "zh": "風險、安全、隱私與身分",
+      "en": "Risk, security, privacy and identity"
+    }
+  },
+  {
+    "id": "people-workforce",
+    "label": {
+      "zh": "招募、人力與員工管理",
+      "en": "Recruitment and workforce"
+    }
+  },
+  {
+    "id": "supplychain-procurement",
+    "label": {
+      "zh": "採購、供應鏈、物流與庫存",
+      "en": "Procurement, supply chain and inventory"
+    }
+  },
+  {
+    "id": "production-quality",
+    "label": {
+      "zh": "生產、製程與品質",
+      "en": "Production, processes and quality"
+    }
+  },
+  {
+    "id": "facilities-maintenance",
+    "label": {
+      "zh": "設施、設備、物業與維護",
+      "en": "Facilities, property and maintenance"
+    }
+  },
+  {
+    "id": "healthcare-care",
+    "label": {
+      "zh": "醫療、診斷、照護與健康支持",
+      "en": "Healthcare and care support"
+    }
+  },
+  {
+    "id": "research-discovery",
+    "label": {
+      "zh": "研究、研發與探索",
+      "en": "Research and discovery"
+    }
+  },
+  {
+    "id": "software-development",
+    "label": {
+      "zh": "軟體開發、測試與維運",
+      "en": "Software development, testing and operations"
+    }
+  },
+  {
+    "id": "ai-lifecycle",
+    "label": {
+      "zh": "AI 開發、部署、評估與治理",
+      "en": "AI development, evaluation and governance"
+    }
+  },
+  {
+    "id": "education-training",
+    "label": {
+      "zh": "教育、學習與技能培訓",
+      "en": "Education and training"
+    }
+  },
+  {
+    "id": "content-creative",
+    "label": {
+      "zh": "內容、媒體與創意設計",
+      "en": "Content, media and creative design"
+    }
+  },
+  {
+    "id": "data-knowledge",
+    "label": {
+      "zh": "資料、文件、知識與資訊處理",
+      "en": "Data, documents and knowledge"
+    }
+  },
+  {
+    "id": "operations-planning",
+    "label": {
+      "zh": "營運、規劃、排程與協作",
+      "en": "Operations, planning and collaboration"
+    }
+  },
+  {
+    "id": "personal-life",
+    "label": {
+      "zh": "個人生活、陪伴與日常活動",
+      "en": "Personal life and companionship"
+    }
+  },
+  {
+    "id": "energy-environment",
+    "label": {
+      "zh": "能源、環境、農業與永續管理",
+      "en": "Energy, environment and sustainability"
+    }
+  },
+  {
+    "id": "matching-transactions",
+    "label": {
+      "zh": "媒合、交易與經紀",
+      "en": "Matching, transactions and brokerage"
+    }
+  },
+  {
+    "id": "engineering-design",
+    "label": {
+      "zh": "工程設計、模擬與硬體研發",
+      "en": "Engineering design and simulation"
+    }
+  },
+  {
+    "id": "assessment-detection",
+    "label": {
+      "zh": "評估、偵測、預測與量測",
+      "en": "Assessment, detection and measurement"
+    }
+  }
+]

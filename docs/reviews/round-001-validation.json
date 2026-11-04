@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "capabilities": 32,
+  "resources": 84,
+  "covered_work_categories": 19,
+  "total_work_categories": 22,
+  "evidence_references": 92,
+  "raw_files_hash_verified": 14,
+  "checks": [
+    "candidate pool digest",
+    "unique identifiers and URLs",
+    "bilingual fields",
+    "2–4 candidates per theme",
+    "valid references",
+    "source commits and exact source lines",
+    "raw snapshot hashes",
+    "coverage and progress totals"
+  ]
+}
