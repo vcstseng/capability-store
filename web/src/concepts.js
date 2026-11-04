@@ -26,3 +26,16 @@ export function conceptPage(data, workId) {
     return concept;
   })}))};
 }
+
+export function validateConceptDetails(data) {
+  const ids=new Set(data.concepts.map(c=>c.id));
+  const bilingual=x=>x && ['zh','en'].every(lang=>typeof x[lang]==='string' && x[lang].trim());
+  const refs=new Set(data.domains.flatMap(d=>d.references.map(r=>r.resource_id+'|'+r.url)));
+  for (const [id,d] of Object.entries(data.details || {})) {
+    if (!ids.has(id)) throw new Error('Unknown detail identity: '+id);
+    if (![d.scenario,d.permissions,d.stop,d.example?.input,d.example?.output].every(bilingual) || !Array.isArray(d.steps) || !d.steps.length || !d.steps.every(bilingual)) throw new Error('Incomplete bilingual detail: '+id);
+    if (d.example.status !== 'illustrative_not_executed') throw new Error('Example must be illustrative: '+id);
+    if (!Array.isArray(d.related_ids) || d.related_ids.some(r=>r===id || !data.details[r])) throw new Error('Broken companion link: '+id);
+    if (!Array.isArray(d.references) || d.references.some(r=>r.status!=='unverified_reference' || !bilingual(r.scope) || !refs.has(r.resource_id+'|'+r.url))) throw new Error('Untraceable reference: '+id);
+  }
+}

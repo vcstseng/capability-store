@@ -6,7 +6,7 @@ export function readExploreRoute(search, availableIds, preferred = 'zh') {
   const view = ['results','resource'].includes(params.get('view')) ? params.get('view') : 'portal';
   const source = params.get('source') === 'trending' ? 'trending' : 'work';
   const problem = /^[A-Za-z][A-Za-z0-9_-]{0,31}$/.test(params.get('problem') || '') ? params.get('problem') : null;
-  const id = /^(cap-[a-f0-9]{14}|github:[a-z0-9_.-]+\/[a-z0-9_.-]+)$/.test(params.get('id') || '') ? params.get('id') : null;
+  const id = /^(idea-[a-z0-9-]{1,64}|cap-[a-f0-9]{14}|github:[a-z0-9_.-]+\/[a-z0-9_.-]+)$/.test(params.get('id') || '') ? params.get('id') : null;
   return { ...base, view, source, problem, ...(view === 'resource' ? {id} : {}) };
 }
 

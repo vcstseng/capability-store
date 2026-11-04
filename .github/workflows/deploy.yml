@@ -1,4 +1,4 @@
-name: Deploy Layer 1 to GitHub Pages
+name: Deploy Capability Store to GitHub Pages
 on:
   push:
     branches: [main]

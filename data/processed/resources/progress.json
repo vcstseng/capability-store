@@ -1,9 +1,9 @@
 {
   "schema_version": "0.1-draft",
   "project": "capability-store",
-  "updated_at": "2026-11-04",
-  "phase": "concept_prototype_layer_2",
-  "status": "business_concepts_complete",
+  "updated_at": "2026-11-05",
+  "phase": "sales_concept_layer_3",
+  "status": "sales_concept_detail_complete",
   "record_limit": null,
   "source_count": 5,
   "latest_snapshot": "data/raw/snapshots/sources-20261104T114042Z",
@@ -27,8 +27,8 @@
   "repository_url": "https://github.com/vcstseng/capability-store",
   "repository_visibility": "public",
   "initial_upload_commit": "f5d17d2",
-  "next_step": "review_business_concepts_layer_2",
-  "website_status": "concept_revision_pending_external_deployment",
+  "next_step": "review_sales_layer_3",
+  "website_status": "sales_l3_pending_deployment",
   "website_url": "https://vcstseng.github.io/capability-store/",
   "website_commit": "f4493ac",
   "deployment_run_id": 41857541549,
@@ -44,5 +44,6 @@
   "concept_reference_unique_resources": 19,
   "pending_website_commit": "23a3e10",
   "pending_deployment_run_id": 41864483858,
-  "local_preview_url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=results"
+  "local_preview_url": "http://127.0.0.1:4175/?lang=zh&work=business-sales&view=results",
+  "concept_detail_count": 6
 }

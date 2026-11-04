@@ -24,3 +24,8 @@ npm run dev
 開啟 http://127.0.0.1:4174/ 。GitHub Pages 使用 .github/workflows/deploy.yml 發布 web/dist。
 
 構想資料：data/processed/concepts/business-concepts.json。原來源資料：data/processed/catalog/catalog.json；raw 快照保留不改。第三方說明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+
+## 銷售能力 L3
+
+銷售 6 個能力提供共用模板讀 JSON 的中英文能力說明，含虛構示例、能力界線與搭配能力。構想尚未實作，示例非執行結果。[規格與驗證](docs/sales-layer-three.md)。

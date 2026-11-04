@@ -3,12 +3,14 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createPortal } from '../src/portal.js';
 import { createResults } from '../src/results.js';
-import { enrichPortalWithConcepts } from '../src/concepts.js';
+import { enrichPortalWithConcepts, validateConceptDetails } from '../src/concepts.js';
 const web = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const data = path.resolve(web, '../data/processed/catalog');
 const catalog = JSON.parse(await readFile(path.join(data, 'catalog.json'), 'utf8'));
 const navigation = JSON.parse(await readFile(path.resolve(web, '../config/taxonomy/portal-navigation.json'), 'utf8'));
 const concepts = JSON.parse(await readFile(path.resolve(web, '../data/processed/concepts/business-concepts.json'), 'utf8'));
+concepts.details = JSON.parse(await readFile(path.resolve(web, '../data/processed/concepts/sales-details.json'), 'utf8')).details;
+validateConceptDetails(concepts);
 const display = JSON.parse(await readFile(path.resolve(web, '../config/resource-display.json'), 'utf8'));
 for (const [id, note] of Object.entries(display)) {
   const resource = catalog.resources.find(resource => resource.id === id);
@@ -26,4 +28,4 @@ const { repositories, source_url, observed_at, period } = trending;
 await writeFile(path.join(web, 'dist/data/trending.json'), JSON.stringify({ source_url, observed_at, period,
   repositories: repositories.map(({ repository, url, summary, rank_in_snapshot, weekly_stars }) =>
     ({ repository, url, summary, rank_in_snapshot, weekly_stars })) }) + '\n');
-console.log(`Built Layers 1–2: ${createPortal(catalog, navigation).works.length} work entries, ${repositories.length} Trending repos.`);
+console.log(`Built Layers 1–3: ${createPortal(catalog, navigation).works.length} work entries, ${repositories.length} Trending repos.`);
