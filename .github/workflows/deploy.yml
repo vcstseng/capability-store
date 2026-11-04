@@ -2,7 +2,7 @@ name: Deploy Layer 1 to GitHub Pages
 on:
   push:
     branches: [main]
-    paths: ['web/**', 'data/processed/catalog/**', '.github/workflows/deploy.yml']
+    paths: ['web/**', 'data/processed/catalog/**', 'config/taxonomy/portal-navigation.json', '.github/workflows/deploy.yml']
   workflow_dispatch:
 permissions:
   contents: read

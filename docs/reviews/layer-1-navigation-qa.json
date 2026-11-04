@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-04",
+  "scope": "Layer 1 navigation revision",
+  "node_tests_passed": 5,
+  "browser": "Chrome",
+  "desktop": true,
+  "mobile_css_width": 375,
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "horizontal_overflow": false,
+  "console_errors": 0,
+  "visible_categories": 14,
+  "visible_themes": 28,
+  "visible_resources": 74,
+  "catalog_themes_retained": 32,
+  "catalog_resources_retained": 84,
+  "hidden_reference_category": "ai-human-collaboration",
+  "interactions": [
+    "bilingual category examples",
+    "select procurement 3 themes / 8 resources",
+    "language preserves selection",
+    "clear / history back",
+    "reload",
+    "legacy finance URL canonicalization",
+    "Trending 3/15"
+  ],
+  "screenshot_note": "Desktop visual preview inspected; subsequent screenshot capture timed out after responsive checks. No new saved screenshot asserted."
+}

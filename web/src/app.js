@@ -3,15 +3,15 @@ import { readRoute, routeSearch } from './portal.js';
 const copy = {
   zh: {
     title: '能力便利商店', tagline: '為工作找能力', skip: '跳到工作探索',
-    heading: '這個工作，有哪些現成能力可用？', intro: '從你想完成的工作出發，探索現成工具、Skills 與 Agent 範例。',
-    themes: '個能力主題', resources: '個候選資源', explore: '按工作探索',
-    exploreHint: '先選一項工作。不需要先懂 Repo、Skill 或 Tool。', countLabel: '能力主題數',
-    visible: '僅列出目前有候選的工作', selected: '已選工作', clear: '清除選擇',
+    heading: '你想改善什麼工作？', intro: '探索可支援這項工作的工具、Skills 與 Agent 範例，作為研究與試作的起點。',
+    themes: '個可探索能力主題', resources: '個相關候選資源', explore: '從工作找能力',
+    exploreHint: '先選一個領域，看看有哪些能力可支援其中的工作。', countLabel: '能力主題數',
+    visible: '僅列有相關候選的分類；同一能力可支援不同工作，分類筆數不相加。', selected: '已選領域', clear: '清除選擇',
     next: '此版先完成工作選擇；能力列表將於下一階段開放。',
     groupCount: (n, r) => `已整理 ${n} 個能力主題、${r} 個候選資源。`,
     selection: name => `已選擇：${name}。`, clearStatus: '已清除工作選擇。',
-    trending: 'GitHub 本週熱門', trendingHint: '看看近期受到關注的專案，尋找不同做法。',
-    snapshot: '週榜快照', weekly: '本週新增 Stars', show: n => `顯示全部 ${n} 筆`, collapse: '收起至 5 筆',
+    trending: 'GitHub 熱門快照', trendingHint: '額外看看受到關注的專案。這是保存的榜單，不會即時更新。',
+    snapshot: '週榜快照', weekly: '本週新增 Stars', show: n => `顯示全部 ${n} 筆`, collapse: '收起至 3 筆',
     trendNote: '保留榜單原始順序；熱度不代表已驗證或適合你的工作。', source: '查看榜單來源 ↗',
     noDescription: '榜單未提供介紹。', github: '在 GitHub 查看 ↗', newTab: '在新分頁開啟',
     footer: '先探索，再確認是否適用。候選尚未安裝或實測。', repo: '專案與資料 ↗',
@@ -21,15 +21,15 @@ const copy = {
   },
   en: {
     title: 'Capability Store', tagline: 'Capabilities for your work', skip: 'Skip to work exploration',
-    heading: 'Find capabilities for the work at hand.', intro: 'Start with a task. Explore existing tools, skills and agent examples.',
-    themes: 'capability themes', resources: 'resource candidates', explore: 'Explore by work',
-    exploreHint: 'Choose one area of work. No need to know resource types first.', countLabel: 'Capability themes',
-    visible: 'Only work areas with candidates are shown', selected: 'Selected work', clear: 'Clear selection',
+    heading: 'What work would you like to improve?', intro: 'Explore tools, skills and agent examples that can support the work — a starting point for research and prototyping.',
+    themes: 'explorable capability themes', resources: 'related resource candidates', explore: 'Find capabilities by work',
+    exploreHint: 'Choose an area to explore capabilities that support steps within the work.', countLabel: 'Capability themes',
+    visible: 'Only categories with related candidates are shown. Capabilities can serve several areas; category counts do not add up.', selected: 'Selected area', clear: 'Clear selection',
     next: 'Work selection is ready in this version. Capability lists are coming next.',
     groupCount: (n, r) => `${n} capability themes and ${r} resource candidates curated.`,
     selection: name => `Selected: ${name}.`, clearStatus: 'Work selection cleared.',
-    trending: 'Trending on GitHub', trendingHint: 'Explore projects getting attention and discover different approaches.',
-    snapshot: 'Weekly snapshot', weekly: 'stars this week', show: n => `Show all ${n} repos`, collapse: 'Show first 5',
+    trending: 'GitHub Trending snapshot', trendingHint: 'An extra way to discover projects. This is a saved ranking, not a live feed.',
+    snapshot: 'Weekly snapshot', weekly: 'stars this week', show: n => `Show all ${n} repos`, collapse: 'Show first 3',
     trendNote: 'In source order. Popularity does not establish suitability or validation.', source: 'View ranking source ↗',
     noDescription: 'No description provided in the ranking.', github: 'View on GitHub ↗', newTab: 'opens in a new tab',
     footer: 'Explore first, then assess fit. Candidates have not been installed or tested.', repo: 'Project & data ↗',
@@ -38,27 +38,7 @@ const copy = {
     prototype: 'Layer 1 · Explore',
   },
 };
-const shortNames = {
-  'sales-marketing': ['行銷與銷售', 'Sales & marketing'],
-  'customer-service': ['客戶服務', 'Customer service'],
-  'finance-accounting': ['財務與會計', 'Finance & accounting'],
-  'legal-compliance': ['法律與合規', 'Legal & compliance'],
-  'risk-security': ['風險與安全', 'Risk & security'],
-  'people-workforce': ['招募與人事', 'Recruitment & people'],
-  'supplychain-procurement': ['採購與供應鏈', 'Procurement & supply chain'],
-  'production-quality': ['生產與品質', 'Production & quality'],
-  'healthcare-care': ['醫療與照護', 'Healthcare & care'],
-  'research-discovery': ['研究與探索', 'Research & discovery'],
-  'software-development': ['軟體開發與維運', 'Software development & operations'],
-  'ai-lifecycle': ['AI 開發與評估', 'AI development & evaluation'],
-  'education-training': ['教育與培訓', 'Education & training'],
-  'content-creative': ['內容與設計', 'Content & design'],
-  'data-knowledge': ['資料、文件與知識', 'Data, documents & knowledge'],
-  'operations-planning': ['營運、排程與協作', 'Operations, scheduling & collaboration'],
-  'energy-environment': ['能源與永續', 'Energy & sustainability'],
-  'engineering-design': ['工程設計', 'Engineering design'],
-  'assessment-detection': ['評估與預測', 'Assessment & forecasting'],
-};
+
 
 const app = document.querySelector('#app');
 let portal, trending, portalFailed = false, trendFailed = false;
@@ -66,7 +46,7 @@ let preferred = 'zh';
 try { preferred = localStorage.getItem('capability-store-language') || 'zh'; } catch {}
 let state = readRoute(location.search, [], preferred);
 const e = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const label = work => shortNames[work.id]?.[state.lang === 'en' ? 1 : 0] || work.label[state.lang];
+const label = work => work.label[state.lang];
 const safeUrl = value => { try { const u = new URL(value); return u.protocol === 'https:' ? u.href : '#'; } catch { return '#'; } };
 const external = (url, text, className = '') => `<a class="${className}" href="${e(safeUrl(url))}" target="_blank" rel="noopener noreferrer" aria-label="${e(text)} (${copy[state.lang].newTab})">${e(text)}</a>`;
 
@@ -77,7 +57,7 @@ function updateState(next, replace = false) {
 function announce(text) { document.querySelector('#announcer').textContent = text; }
 function selectedMarkup(t) {
   const work = portal?.works.find(work => work.id === state.work);
-  return work ? `<div class="selection-content"><div><p class="micro-label">${t.selected}</p><h3>${e(label(work))}</h3><p>${t.groupCount(work.theme_count, work.resource_count)}</p></div><button class="text-button" data-clear>${t.clear}</button></div><p class="next-note">${t.next}</p>` : '';
+  return work ? `<div class="selection-content"><div><p class="micro-label">${t.selected}</p><h3>${e(label(work))}</h3><p>${t.groupCount(work.theme_count, work.resource_count)}</p><p class="selection-examples">${e(work.examples.map(example => example[state.lang]).join(state.lang === 'zh' ? '、' : ' · '))}</p></div><button class="text-button" data-clear>${t.clear}</button></div><p class="next-note">${t.next}</p>` : '';
 }
 function renderWorkSelection() {
   const container = document.querySelector('#selected-work');
@@ -108,15 +88,19 @@ function render() {
       <section class="intro" aria-labelledby="page-title"><p class="eyebrow">CAPABILITY STORE</p><h1 id="page-title">${t.heading}</h1><p class="intro-text">${t.intro}</p>
       ${portal ? `<div class="dataset-counts"><span><strong>${portal.capability_count}</strong> ${t.themes}</span><span><strong>${portal.resource_count}</strong> ${t.resources}</span></div>` : ''}</section>
       <section class="work-section" aria-labelledby="work-heading">
-        <div class="section-header"><div><h2 id="work-heading" tabindex="-1">${t.explore}</h2><p>${t.exploreHint}</p></div><span class="count-key">${t.countLabel}</span></div>
+        <div class="section-header"><div><h2 id="work-heading" tabindex="-1">${t.explore}</h2><p>${t.exploreHint}</p></div></div>
         <div id="selected-work" class="selection-panel" ${selected ? '' : 'hidden'}>${selectedMarkup(t)}</div>
-        ${portal ? `<div class="work-grid">${portal.works.map(work => `<button type="button" class="work-card" data-work="${e(work.id)}" aria-pressed="${work.id === state.work}" title="${e(work.label[state.lang])}" aria-label="${e(label(work))}, ${work.theme_count} ${t.themes}"><span class="work-label">${e(label(work))}</span><span class="work-count">${work.theme_count}<span class="work-arrow" aria-hidden="true">${work.id === state.work ? '✓' : '+'}</span></span></button>`).join('')}</div><p class="section-footnote">${t.visible}</p>` : `<div class="load-state" role="status"><p>${portalFailed ? t.error : t.loading}</p>${portalFailed ? `<button class="outline-button" data-retry="portal">${t.retry}</button>` : ''}</div>`}
+        ${portal ? `${portal.groups.map(group => {
+          const works = portal.works.filter(work => work.group === group.id);
+          if (!works.length) return '';
+          return `<section class="work-group" aria-labelledby="group-${e(group.id)}"><div class="group-heading"><h3 id="group-${e(group.id)}">${e(group.label[state.lang])}</h3><span>${state.lang === 'zh' ? '能力主題數' : 'Capability themes'}</span></div><div class="work-grid">${works.map(work => `<button type="button" class="work-card" data-work="${e(work.id)}" aria-pressed="${work.id === state.work}" aria-label="${e(label(work))}, ${work.theme_count} ${t.themes}"><span class="work-copy"><span class="work-label">${e(label(work))}</span><span class="work-examples">${state.lang === 'zh' ? '例如：' : 'e.g. '}${e(work.examples.map(example => example[state.lang]).join(state.lang === 'zh' ? '、' : ' · '))}</span></span><span class="work-count">${work.theme_count}<span class="work-arrow" aria-hidden="true">${work.id === state.work ? '✓' : '+'}</span></span></button>`).join('')}</div></section>`;
+        }).join('')}<p class="section-footnote">${t.visible}</p><p class="reference-note">${state.lang === 'zh' ? '分類沿用 ' : 'Categories follow '}${external('https://vcstseng.github.io/99-problems/pages/problem-map/index.html', '99 Problems ↗')}<span>${state.lang === 'zh' ? '；候選可支援的步驟與適用性仍需確認。' : '; supported steps and suitability still need assessment.'}</span></p>` : `<div class="load-state" role="status"><p>${portalFailed ? t.error : t.loading}</p>${portalFailed ? `<button class="outline-button" data-retry="portal">${t.retry}</button>` : ''}</div>`}
       </section>
       <section class="trending-section" aria-labelledby="trending-heading">
         <div class="section-header"><div><h2 id="trending-heading">${t.trending}</h2><p>${t.trendingHint}</p></div>
         ${trending ? `<button class="outline-button trending-toggle" aria-expanded="${state.expanded}" aria-controls="trending-list" data-expand>${state.expanded ? t.collapse : t.show(trending.repositories.length)}</button>` : ''}</div>
         ${trending ? `<div class="trending-context"><span>${t.snapshot} · <time datetime="${e(trending.observed_at)}">${new Intl.DateTimeFormat(state.lang === 'en' ? 'en-GB' : 'zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(trending.observed_at))}</time></span>${external(trending.source_url, t.source)}</div>
-        <ol id="trending-list" class="trending-list">${trending.repositories.slice(0, state.expanded ? undefined : 5).map(repo => `<li class="trending-row"><span class="rank" aria-hidden="true">${String(repo.rank_in_snapshot).padStart(2, '0')}</span><div class="trending-copy">${external(repo.url, repo.repository, 'repo-link')}<p ${repo.summary[state.lang] ? '' : 'class="missing-description"'}>${e(repo.summary[state.lang] || t.noDescription)}</p></div><div class="star-signal"><span class="stars">+${new Intl.NumberFormat(state.lang === 'en' ? 'en' : 'zh-TW').format(repo.weekly_stars)}</span><span>${t.weekly}</span></div></li>`).join('')}</ol><p class="section-footnote">${t.trendNote}</p>` : `<div class="load-state" role="status"><p>${trendFailed ? t.trendError : t.loading}</p>${trendFailed ? `<button class="outline-button" data-retry="trending">${t.retry}</button>` : ''}</div>`}
+        <ol id="trending-list" class="trending-list">${trending.repositories.slice(0, state.expanded ? undefined : 3).map(repo => `<li class="trending-row"><span class="rank" aria-hidden="true">${String(repo.rank_in_snapshot).padStart(2, '0')}</span><div class="trending-copy">${external(repo.url, repo.repository, 'repo-link')}<p ${repo.summary[state.lang] ? '' : 'class="missing-description"'}>${e(repo.summary[state.lang] || t.noDescription)}</p></div><div class="star-signal"><span class="stars">+${new Intl.NumberFormat(state.lang === 'en' ? 'en' : 'zh-TW').format(repo.weekly_stars)}</span><span>${t.weekly}</span></div></li>`).join('')}</ol><p class="section-footnote">${t.trendNote}</p>` : `<div class="load-state" role="status"><p>${trendFailed ? t.trendError : t.loading}</p>${trendFailed ? `<button class="outline-button" data-retry="trending">${t.retry}</button>` : ''}</div>`}
       </section>
     </main>
     <footer><p>${t.footer}</p><div><span>${t.prototype}</span>${external('https://github.com/vcstseng/capability-store', t.repo)}</div></footer>
@@ -166,6 +150,7 @@ async function load(part) {
       if (!Array.isArray(data.works) || !data.works.length) throw new Error('Invalid portal');
       portal = data;
       state = readRoute(location.search, portal.works.map(w => w.id), preferred);
+      if (new URLSearchParams(location.search).get('work') && state.work) updateState({}, true);
     } else {
       if (!Array.isArray(data.repositories) || !data.repositories.length) throw new Error('Invalid Trending');
       trending = data;

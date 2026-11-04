@@ -17,3 +17,7 @@
 完整候選池和網站首版分開；原始資料不可直接覆蓋。補資料時保留來源、日期與修改記錄，依缺口再決定是否新增欄位，不預建複雜補充層。
 
 獨立 `trending.json`：觀察時間、週榜來源、原始頁面摘要、原順序、repo、中英文說明與當次週增 Stars；與工作候選分開計數，缺描述保留 null。
+
+## 首頁導覽（0.2-portal）
+
+`config/taxonomy/portal-navigation.json` 定義 99 Problems 參考分組、雙語分類與能力 ID 對應。建置時由原始 catalog 計算各類主題／不重複資源數、雙語例子、全站去重總數及未對應主題。catalog 原本的工作分類與資源 ID 不修改。這是導覽設定，不是跨模組共用 schema 或已驗證的 Problem matching。

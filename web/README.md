@@ -11,3 +11,5 @@ Node 22+：`npm test`、`npm run build`。Python 3：`npm run dev`，開啟 http
 - tests/portal.test.mjs：計數及網址行為檢查。
 
 URL：`?lang=en&work=finance-accounting&trending=all`。穩定工作 ID 可供之後接上動態 Layer 2；目前選取摘要明確說明列表尚未開放。
+
+2026-11-04 首頁改為 99 Problems 分類導覽，設定見 `config/taxonomy/portal-navigation.json`。每類例子由實際能力名稱產生；全站計數去重，未對應主題保留。舊財務等明確網址可相容，模糊合併分類不猜選。

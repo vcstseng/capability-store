@@ -2,9 +2,13 @@
 
 ## 最新決定（2026-11-04）
 
-公開 repo：vcstseng/capability-store，main。Layer 1 已完成：沿用 Startup Radar 極簡風格、中英文、19 個有資料工作入口、單選摘要、獨立 Trending 前 5／全部 15 筆。完成後同步 GitHub 與 docs。下一步先 review 首頁，再討論 Layer 2；不連帶實作 Layer 2／3。
+最終會整合 99 Problems、Startup Radar、Capability Store 與 Consulting Agents。Capability Store 首頁以 99 Problems 的 10 個企業領域及 5 個 AI 面向為參考，僅顯示有相關候選的分類，目前為 10＋4。Startup Radar 僅作產品與解法參考，舊的工作對應保留在 catalog 以便溯源，不再作首頁分類。
 
-能力深化 review 與替換延後；首版為「工作 → 具體能力 → 2–4 個候選」，32 個主題、84 個資源。企業共通工作優先，少量產業例子補充，不湊筆數、不做類型配額。Startup Radar 的工作 ID 只作探索參考，不代表 99 Problems 已覆蓋。
+本輪僅修改 L1。每個入口有能力例子，共通能力可支援多個工作，計數按穩定 ID 去重。首頁目前 28 主題／74 資源；完整 catalog 保留 32／84，4 個產業主題不硬配、不刪除。導覽關係另存 config/taxonomy/portal-navigation.json，不當作已驗證 Problem matching。
+
+保持 Startup Radar 的極簡風格、中英文、網址與返回狀態。Trending 為次要的「GitHub 熱門快照」，3 筆預覽／15 筆完整榜單，不宣稱即時更新。空分類先不顯示，不湊數。Layer 2／3 待後續指示。
+
+公開 repo：vcstseng/capability-store，main；網站 https://vcstseng.github.io/capability-store/。完成輪次後更新 docs、同步 GitHub 與發布結果。能力深化 review 及替換延後，不建共用資料層、自動 matching 或 Agent 執行管線。
 
 ## 每輪流程
 
