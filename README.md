@@ -2,6 +2,7 @@
 
 按工作探索現成工具、Skills 與 Agent 範例的中英文 prototype，延續 Startup Radar 的極簡風格。
 
+- [開啟網站 / Open website](https://vcstseng.github.io/capability-store/)
 - [GitHub Repository](https://github.com/vcstseng/capability-store)
 - [能力資料 review](docs/prototype-review.md) · [Trending 快照](docs/trending-review.md) · [進度](docs/progress.md)
 - 資料：32 個能力主題、84 個候選資源；另有 15 筆 Trending 週榜快照。已整理不代表已安裝、測試或適用性驗證。

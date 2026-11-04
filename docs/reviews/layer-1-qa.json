@@ -22,5 +22,9 @@
     "Trending 5/15",
     "external link attributes"
   ],
-  "scope": "Layer 1 only; Layer 2/3 not implemented"
+  "scope": "Layer 1 only; Layer 2/3 not implemented",
+  "public_url": "https://vcstseng.github.io/capability-store/",
+  "public_page_verified": true,
+  "deployment": "success",
+  "deployment_run_id": 41832736396
 }

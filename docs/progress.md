@@ -11,7 +11,7 @@
 
 驗證：4 項 Node 檢查通過（真實分類計數、重複資源計數、分享網址狀態、未知分類）；建置成功。Chrome 桌面與 375px 手機尺寸，中文／英文、工作選擇／清除／返回／重整、Trending 5↔15 及外部連結屬性已檢查，未見橫向溢出或 console error。按鈕觸控區至少 44px。首次本機預覽在一般執行環境無法連線，改用獲准的本機預覽後完成檢查。
 
-GitHub Pages 工作流程已加入，網站預期網址為 https://vcstseng.github.io/capability-store/；實際發布結果接續記錄。
+GitHub Pages 已發布：[能力便利商店](https://vcstseng.github.io/capability-store/)。網站版本 commit：`b907398`；[發布執行 41832736396](https://github.com/vcstseng/capability-store/actions/runs/41832736396) 已成功。公開網址已實際載入，19 個工作入口、32／84 總數、Trending 預設 5 筆及選取切換皆正常；原始候選資料未被更動。程式、docs 與驗證紀錄已同步公開 repo。
 
 下一步先 review Layer 1，再討論 Layer 2。能力深化 review、替換與個別資源驗證之後再做。
 

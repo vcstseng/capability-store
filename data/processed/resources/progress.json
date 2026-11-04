@@ -28,5 +28,8 @@
   "repository_visibility": "public",
   "initial_upload_commit": "f5d17d2",
   "next_step": "review_layer_1_then_discuss_layer_2",
-  "website_status": "layer_1_built_pending_deployment"
+  "website_status": "layer_1_deployed",
+  "website_url": "https://vcstseng.github.io/capability-store/",
+  "website_commit": "b907398",
+  "deployment_run_id": 41832736396
 }
