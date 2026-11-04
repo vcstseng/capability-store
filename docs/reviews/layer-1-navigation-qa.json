@@ -26,5 +26,8 @@
     "legacy finance URL canonicalization",
     "Trending 3/15"
   ],
-  "screenshot_note": "Desktop visual preview inspected; subsequent screenshot capture timed out after responsive checks. No new saved screenshot asserted."
+  "screenshot_note": "Public in-app-browser screenshot saved after deployment verification.",
+  "public_page_verified": true,
+  "deployment_run_id": 41839218848,
+  "deployment": "success"
 }
