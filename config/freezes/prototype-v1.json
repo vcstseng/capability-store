@@ -35,5 +35,12 @@
     "web/tests/concepts.test.mjs": "8b79187e3b36f0b21b9700963e05bdd44569e4f4e4912e66adcca08e63dca43a",
     "web/tests/portal.test.mjs": "9847831cc6f566c9159ba8fb370113cd57ad81d6d45f4b35015e0f318d0ddfa8",
     "web/tests/results.test.mjs": "38ca718ae603fd51561bcb64e8740522668cffe9a8249c167babc311c6afb393"
+  },
+  "publication": {
+    "commit": "8d51dec",
+    "run_id": 41879757968,
+    "status": "success",
+    "public_page_verified": true,
+    "url": "https://vcstseng.github.io/capability-store/"
   }
 }

@@ -59,3 +59,7 @@ L3 增補：sales-details.json（原六筆）及 business-details.json（新增�
 ## 公開部署
 
 本輪功能發布待確認。先前 Sales run 41873725913 的測試與建置成功，但 Pages 更新超過十分鐘而逾時取消，未當作成功。完成紀錄會如實記錄本輪 run 與狀態。
+
+最終結果：GitHub Pages run 41879757968 成功，發布功能版本 8d51dec。瀏覽器已在公開站確認發票核對 L3 的情境、示例、界線與來源均完整呈現。凍結 tag：capability-store-prototype-v1。
+
+公開網站：https://vcstseng.github.io/capability-store/
